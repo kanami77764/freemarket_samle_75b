@@ -12,7 +12,7 @@ has_one :profile, dependent: :destroy
 has_one :sns_authentication, dependent: :destroy
 has_one :sending_destination, dependent: :destroy
 has_one :credit_card, dependent: :destroy
-has_many :items
+has_many :items, dependent: :destroy
 
 #profiles テーブル
 |Column|Type|Options|
@@ -84,7 +84,7 @@ belongs_to: user
 |buyer|references|foreign_key:true|
 Association
 has_many :comments, dependent: :destroy
-has_many :favorites
+has_many :favorites, dependent: :destroy
 has_many :item_imgs, dependent: :destroy
 belongs_to :category
 belongs_to :user
