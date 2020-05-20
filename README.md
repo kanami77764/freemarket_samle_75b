@@ -12,6 +12,7 @@ has_one :profile, dependent: :destroy
 has_one :sns_authentication, dependent: :destroy
 has_one :sending_destination, dependent: :destroy
 has_one :credit_card, dependent: :destroy
+has_many :items
 
 #profiles テーブル
 |Column|Type|Options|
@@ -70,14 +71,13 @@ belongs_to: user
 |name|string|null:false,validates :introduction,length:{maximum:40}|
 |introduction|text|null:false,validates :introduction,length:{maximum:1000}|
 |price|integer|null:false|
-|brand|text|foreign_key:true|
+|brand|text|null:false|
 |item_condition|text|null:false,foreign_key:true|
 |postage_payer|text|null:false,foreign_key: true|
 |prefecture_code|integer|null:false|
 |size|text|null:false,foreign_key:ture|
 |preparation_day|text|null:false,foreign_key: true|
 |postage_type|text|null: false,foreign_key: true|
-|item_img|references|null:false,foreign_key:true|
 |category|references|null:false,foreign_key:true|
 |trading_status|enum|null:false|
 |seller|references|null:false,foreign_key:true|
