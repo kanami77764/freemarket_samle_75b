@@ -1,3 +1,292 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$font_color: rgb(78, 88, 99);
+$font_title: #333;
+
+
+html {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  
+}
+body {
+  height:900px;
+  margin:0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.bread-crumbs {
+  height: 40px;
+  width: 100%;
+  padding: 0 50px;
+  border-top:1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  position: relative;
+  background-color: white;
+
+  ul {
+    height: 40px;
+    width: 1155px;
+    max-width: 1000;
+    margin: 0 auto;
+    display: flex;
+    line-height: 40px;
+
+    li {
+      margin-left: 5px;
+      font-size: 14px;
+
+      a {
+        text-decoration: none;
+        margin: 5px;
+        color: $font_color;
+      }
+      a:hover {
+        color: #3ccace;
+      }
+    }
+  }
+}
+
+.main {
+  height: 100%;
+  width: 1100px;
+  margin: 0 auto;
+  padding: 24px 0 40px 0;
+  
+
+  .right-contents {
+    width: 700px;
+    float: right;
+
+
+    .user-info {
+      height: 150px;
+      width: 700px;
+
+      .user-info__contents {
+        background-color: white;
+
+        a {
+          text-decoration: none;
+          color: $font_color;
+        }
+
+        figure {
+          text-align: center;
+          margin: 0 auto;
+          height: 100px;
+          line-height: 150px;
+
+          img {
+            border-radius: 20px;
+          }
+        }
+
+        p {
+          text-align: center;
+          height: 40px;
+          line-height: 20px;
+          padding-bottom: 10px;
+        }
+      }
+    }
+
+
+
+    .user-todo {
+      width: 700px;
+      height: 400px;
+
+      .tab-todo {
+        width: 700px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        background-color:#3ccace;
+        color: $font_title;
+      }
+
+      .tab-content{
+        .todo-lists {
+          width: 700px;
+          height: 80px;
+
+          li {
+            border-bottom: 1px solid $font_color;
+            font-size: 14px;
+            line-height: 80px;
+            display: flex;
+            
+            .list-item {
+              width: 650px;
+              color: $font_color;
+              padding-left: 10px;
+
+            }
+            i {
+              line-height: 80px;
+              width: 50px;
+              font-size: 20px;
+              color: $font_color;
+            }
+          }
+        }
+      }
+    }
+
+
+
+    .buy-product {
+      width: 700px;
+      height: 400px;
+
+      &__head {
+        width: 700px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: #3ccace;
+        color:$font_title;
+      }
+
+      .tab-buy {
+        width: 700px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: rgb(119, 171, 192);
+        color: $font_color;
+        margin-top: 3px;
+      }
+
+      .tab-content {
+
+        .buy-lists {
+
+          li {
+            border-bottom: 1px solid #333;
+            font-size: 14px;
+            line-height: 80px;
+            display: flex;
+            
+            .list-item {
+              width: 650px;
+              color: $font_color;
+              padding-left: 10px;
+              
+            }
+
+            i {
+              line-height: 80px;
+              width: 50px;
+              font-size: 20px;
+              color:$font_color;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+
+  .left-contents {
+    width: 280px;
+    height: 800px;
+    float: left;
+    margin-right: 50px;
+    padding-top: 30px;
+
+    nav {
+      p {
+        size: 15px;
+        font-weight: bold;
+        width: 280px;
+        height: 40px;
+        text-align: center;
+        color: $font_title;
+      }
+      .my-page-lists {
+        width: 280px;
+        height: 400px;
+        
+
+        li {
+          display: flex;
+          border-bottom: 1px solid $font_title;
+
+          .lists-info {
+            width: 270px;
+           
+            font-size: 14px;
+            line-height: 50px;
+            height: 50px;
+            color: $font_color;
+            padding-left: 10px;
+          }
+          
+          a {
+            text-decoration: none;
+            color: $font_color;
+            
+          }
+          i {
+            width: 20px;
+            height: 50px;
+            line-height: 50px;
+            color: $font_title;
+
+          }
+        }
+      }
+
+      p {
+        size: 15px;
+        font-weight: bold;
+        width: 280px;
+        height: 40px;
+        text-align: center;
+        color: $font_title;
+      }
+
+      .setting-lists {
+        width: 280px;
+        height: 200px;
+
+        .list-setting {
+          display: flex;
+          border-bottom: 1px solid $font_title;
+
+          &__info {
+            font-size: 14px;
+            line-height: 50px;
+            height: 50px;
+            color: $font_color;
+            padding-left: 10px;
+            width: 270px;
+
+
+            a {
+              text-decoration: none;
+              color: $font_color;
+            }
+          }
+
+          i {
+            width: 20px;
+            height: 50px;
+            line-height: 50px;
+            color: $font_title;
+
+          }
+        }
+      }
+    }
+  }
+}

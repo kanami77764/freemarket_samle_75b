@@ -1,0 +1,53 @@
+.header
+  = render partial: 'layouts/header'
+  .header__title
+    .header__title__contents
+      クレジットカード入力画面
+
+.main-form
+  .main-form__frame
+    = form_with url: users_path do |f|
+      .form-group
+        = f.label :カード番号
+        %span.form-group__require 必須
+        %br
+        = f.text_field :card_number, class: 'form-group__input', placeholder:'半角数字のみ'
+      .form-group
+        = f.label :カード会社
+        %span.form-group__require 必須
+        %br
+        = f.select :card_campany, [["VISA",1],["mastercard",2],["saison",3],["JCB",4],["AMEX",5],["Diners",6]], prompt:"カード会社を選択して下さい", class: 'form-group__input'
+        %ul.card-list
+          %li.icon-visa
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://upload.wikimedia.org/wikipedia/commons/1/16/Former_Visa_%28company%29_logo.svg" }/
+          %li.icon-master
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1200px-Mastercard-logo.svg.png" }/
+          %li.icon-saison
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Saison_card_logo.svg/1024px-Saison_card_logo.svg.png" }/
+          %li.icon-jcb
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/JCB_logo.svg/776px-JCB_logo.svg.png" }/
+          %li.icon-amex
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://cdn.worldvectorlogo.com/logos/american-express-630.svg" }/
+          %li.icon-diners
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://seeklogo.com/images/D/Diners_Club-logo-9EA513928F-seeklogo.com.png" }/
+      .form-group
+        =f.label :有効期限
+        %span.form-group__require 必須
+        %br
+        = f.select :card_month, options_for_select(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]), {}, class: 'form-group__input__one'
+        = f.label :月, class: "form-group__card__year-month"
+        = f.select :card_year, options_for_select(["20","21","22","23","24","25","26"]), {}, class: 'form-group__input__one'
+        = f.label :年, class: "form-group__card__year-month"
+      .form-group
+        = f.label :セキュリティコード
+        %span.form-group__require 必須
+        =f.text_field :card_pass, placeholder: "カード背面4桁もしくは3桁の番号", class: "form-group__input"
+
+      .form-group__add
+        .form-group__add__question ?
+        %p.form-group__text--right--blue
+          カードの裏面の番号とは？
+      .form-group
+        = f.submit "登録する", class: "btn--red", url:"#"
+
+.footer
