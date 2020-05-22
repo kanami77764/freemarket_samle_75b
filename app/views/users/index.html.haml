@@ -1,0 +1,103 @@
+%header
+  .header
+  = render partial: 'layouts/header'
+  
+%nav.bread-crumbs
+  %ul
+    %li 
+      = link_to "#" do
+        furuma
+      = icon('fas','angle-right')
+    %li 
+      = link_to "#" do
+        マイページ
+
+
+
+.main
+  .right-contents
+    %section.user-info
+      .user-info__contents
+        = link_to "#" do
+          %figure
+            %img{:alt => "", :width => "60", :height => "60", :src => "//static.mercdn.net/thumb/members/394621039.jpg?1579745078" }/
+          %p
+            金井
+    %section.user-todo
+      .tab-todo
+        やることリスト
+      .tab-content
+        %ul.todo-lists
+          %li
+            .list-item
+              〇〇日までに、発送
+            = icon('fas','angle-right')
+          %li
+            .list-item
+              〇〇日までに、発送
+            = icon('fas','angle-right')
+    %section.buy-product
+      %h2.buy-product__head 
+        購入したもの
+      .tab-buy
+        取引中
+      .tab-content
+        %ul.buy-lists
+          %li
+            .list-item
+              レディース、Tシャツ（S）
+            = icon('fas','angle-right')
+
+
+
+
+  .left-contents
+    %nav.my-page-nav
+      %p マイページ
+      %ul.my-page-lists
+        %li
+          .lists-info
+            = link_to "#" do
+              お知らせ
+          = icon('fas','angle-right')
+        %li
+          .lists-info
+            = link_to "#" do
+              出品する
+          = icon('fas','angle-right')
+        %li
+          .lists-info
+            = link_to "#" do
+              出品した商品
+          = icon('fas','angle-right')
+        %li
+          .lists-info
+            = link_to "#" do
+              購入した商品
+          = icon('fas','angle-right')
+        %li
+          .lists-info
+            = link_to "#" do
+              お問い合わせ
+          = icon('fas','angle-right')
+        %li
+          .lists-info
+            =link_to "#" do
+              お知らせ
+          = icon('fas','angle-right')
+      %p 設定
+      %ul.setting-lists
+
+        %li.list-setting
+          .list-setting__info
+            =link_to "#" do
+              クレジットカード登録・変更
+          = icon('fas','angle-right')
+        %li.list-setting
+          .list-setting__info
+            =link_to "#" do
+              ログアウト
+          = icon('fas','angle-right')
+
+
+
