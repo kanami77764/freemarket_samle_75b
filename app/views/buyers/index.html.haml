@@ -1,0 +1,31 @@
+.header
+  .header__logo
+    =image_tag("logo.png", size: "220x70")
+
+.main
+  .main__buy-container
+    %h1.buy-head 購入内容の確認
+    .main__buy-container__buy-item-content
+      .main__buy-container__buy-item-content__buy-item-content-inner
+        .main__buy-container__buy-item-content__buy-item-content-inner__buy-item-box
+          .main__buy-container__buy-item-content__buy-item-content-inner__buy-item-box__buy-item-img
+            写真表示させる
+          .main__buy-container__buy-item-content__buy-item-content-inner__buy-item-box__buy-item-detail
+            %p.name 商品名表示させる
+            %p.money ¥金額表示させる
+    .main__buy-container__buy-pay-content
+      .main__buy-container__buy-pay-content__buy-pay-content-inner
+        = form_for '#' do |f|
+          %ul.buy-price
+            %li.pay-title 支払い金額
+            %li.pay-money ¥金額表示させる
+          .main__buy-container__buy-pay-content__buy-pay-content-inner__pay-method
+            %p 支払い方法
+            %p ※登録したカード情報表示させる
+          .main__buy-container__buy-pay-content__buy-pay-content-inner__send-destination
+            %p 配送先
+            %p ※登録した送付先住所表示させる
+          .main__buy-container__buy-pay-content__buy-pay-content-inner__buy-btn
+            = f.submit '購入する', class: 'buy-btn'
+
+.hooter
