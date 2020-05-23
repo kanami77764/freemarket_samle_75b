@@ -1,11 +1,3 @@
-
-
-.header {
-  background-color: red;
-  height: 92px;
-  text-align: center;
-}
-
 .main {
   background-color: #f8f8f8;
   .mainVisual {
@@ -21,27 +13,26 @@
     padding: 0 60px;
     display: flex;
     align-items: center;
-    .content {
+    &__content {
       width: 100%;
       max-width: 1280px;
       margin: 0 auto;
       padding: 35px 0 0 0;
       line-height: 1.2;
-        .content__subtitle {
+        &__subtitle {
           text-shadow: 0 0 5px rgba(0,0,0,0.4);
           font-size: 60px;
           color: #ffffff;
         }
-        .content__text {
+        &__text {
           text-shadow: 0 0 5px rgba(0,0,0,0.4);
           color: #ffffff;
           font-size: 18px;
-          // あとで調整
           line-height: 1.77;      
           margin-top: 16px;
         }
         // AppStoreとGoogleのアイコン
-      .content__btn {
+      &__btn {
         display: flex;
         margin-top: 24px;
         .aBtn {
@@ -134,31 +125,31 @@
     height: 400px;
     display: flex;
     align-items: center;
-    .topMiddleDl__inner {
+    &__inner {
       color: #ffffff;
       text-align: left;
       max-width: 1040px;
       width: 100%;
       margin: 0 auto;
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      .subtitle {
+      &__subtitle {
         font-size: 27px;
         font-weight: bold;
         line-height: 1.4;
       }
-      .text {
+      &__text {
         font-size: 18px;
         margin: 20px 0 30px;
         line-height: 1.5;
       }
       // AppStoreとGoogleのアイコン
-      .btn {
+      &__btn {
         display: flex;
-        .aBtn {
+        a {
           margin-right: 10px;
-        }
-        .bBtn {
-          margin-right: 10px;
+          img {
+            width: 180px;
+          }
         }
       }
     }
@@ -188,22 +179,22 @@
         text-align: center;
         padding: 0 20px;
         width: calc(1 / 3 * 100%);
-        .item__img {
+        &__img {
           width: 70%;
           margin: 0 auto;
           line-height: 120px;
           // svgの画像反映させる
-          .image__icon {
+          &__icon {
             width: 100%;
             vertical-align: bottom;
           }
         }
-        .item__subtitle {
+        &__subtitle {
           margin: 38px 0 10px;
           font-size: 19px;
           font-weight: bold;
         }
-        .tem__detail {
+        &__detail {
           margin: 0 0 40px;
           font-size: 17px;
           font-weight: 200;
@@ -302,7 +293,46 @@
   }
 }
 
-a {
+.appBanner {
+  background-image: url(http://furima.tokyo/assets/bg-appBanner-pict-ce684a4c4d5fa2da43c30a3839923591af75a642a3a906ad975065771ef3d72f.jpg);
+  background-position: center;
+  background-size: cover;
+  padding: 100px 40px;
+  position: relative;
+  .inner {
+    text-align: center;
+    color: #fff;
+    .innner__title {
+      text-shadow:0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    .innner__text {
+      text-shadow:0 0 5px rgba(0,0,0,0.4);
+      font-size: 35px;
+    }
+    .inner__icon {
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      a {
+        margin-right: 10px;
+        .aBtn {
+          width: 180px;
+        }
+      }
+      a {
+        .bBtn {
+          width: 180px;
+        }
+      }
+    }
+  }
+}
+
+.display-item {
   .purchaseBtn {
     // 見本のwidthは120px
     width: 120px;

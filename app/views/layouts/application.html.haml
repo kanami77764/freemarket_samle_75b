@@ -8,60 +8,64 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    
     = yield
     %aside.appBanner
-      %div.inner
+      .inner
         %h2.innner__title
           誰でも簡単、人生を変えるフリマアプリ
         %p.innner__text
           今すぐ無料ダウンロード
-        %div.inner__icon
-          %a{:href => "#"}
-            %img{:class => "linksicon aBtn", :src => "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
-          %a{:href => "#"}
-            %img{:class => "linksicon bBtn", :src => "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
+        .inner__icon
+          = link_to '#' do
+            = image_tag 'http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg', class: 'linksicon aBtn'
+          = link_to '#' do
+            = image_tag 'http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg', class: 'linksicon bBtn'
     %footer.footer
       %ul.contents
         %li.content
           %h2.content__head FURIMAについて
           %ul
             %li
-              %a{:href => "#"} 会社概要(運営会社)
+              = link_to '#' do
+                会社概要(運営会社)
             %li
-              %a{:href => "#"} プライバシーポリシー
+              = link_to '#' do
+                プライバシーポリシー
             %li
-              %a{:href => "#"} FURIMA利用規約
+              = link_to '#' do
+                FURIMA利用規約
             %li
-              %a{:href => "#"} ポイントに関する特約
+              = link_to '#' do
+                ポイントに関する特約
         %li.content
           %h2.content__head FURIMAを見る
           %ul
             %li
-              %a{:href => "#"} カテゴリー一覧
+              = link_to '#' do
+                カテゴリー一覧
             %li
-              %a{:href => "#"} ブランド一覧
+              = link_to '#' do
+                ブランド一覧
         %li.content
           %h2.content__head ヘルプ&ガイド
           %ul
             %li
-              %a{:href => "#"} FURIMAガイド
+              = link_to '#' do
+                FURIMAガイド
             %li
-              %a{:href => "#"} FURIMAロゴ利用ガイドライン
+              = link_to '#' do
+                FURIMAロゴ利用ガイドライン
             %li
-              %a{:href => "#"} お知らせ
-      %div.footer__logo
-        %a{:href => "#"}
-          %img{:src => "http://furima.tokyo/assets/logo-white-f61961ed5170064c5f33dd4524bdceeb5a5df2c83eb76fba31143f63fbab2c5e.svg"}
-        -# FURIMAのアイコンを追加する
+              = link_to '#' do
+                お知らせ
+      .footer__logo
+        = link_to '#' do
+          = image_tag 'logo-white.png'
       %p.footer__copyright
         &copy; FURIMA
-
-    -# 右下の写真アイコン↓
-    %a{:href => "#"}
+        
+    = link_to '#', class:'display-item' do
       .purchaseBtn
         %span.purchaseBtn__text
           出品する
-          -# = image_tag("icon_camera.png")
-        %img{:class => "purchaseBtn__icon", :src => "http://furima.tokyo/assets/icon_camera-968c5ebaa05319bf1e2ad7508f852dd712504a4d26a1930d8bd87ec03ebcc37a.svg"}
-        -# svgを追加する↑
+        = image_tag 'icon_camera.png', class: 'purchaseBtn__icon'
