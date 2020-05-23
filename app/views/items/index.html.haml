@@ -1,2 +1,205 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
+%div.main
+  = render partial: 'layouts/header'
+  %section.mainVisual
+    %div.content
+      %h2.content__subtitle
+        %br
+        人生を変えるフリマアプリ
+      %p.content__text
+        フリマは誰でも簡単に購入できる
+        %br/
+        フリマアプリです
+      %div.content__btn
+        %a.aBtn{:href => "#"}
+          %img{:src => "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
+        %a.bBtn{:href => "#"}
+          %img{:src => "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
+
+  %section.topIntroduction
+    %h2.subtitle
+      フリマが選ばれる三つの理由
+    %ul.lists
+      %li.list
+        %div.list__pict
+          %span.number 1
+          %img{:class => "pic", :src => "http://furima.tokyo/assets/pict-reason-01-77b860b45f32923029756050dafc0f6df01a36675414b0f26f127c64a53baaea.jpg"}/
+        %h3.list__text
+          %span.text 3分
+          ですぐに出品
+        %p.description
+          スマホで入力するだけで簡単に出品できる！
+      %li.list
+        %div.list__pict
+          %span.number
+            2
+          %img{:class => "pic", :src => "http://furima.tokyo/assets/pict-reason-02-3471b96ea7b52654510992e57dc05af07926de0836200059b7fa4ead05ee4d56.jpg"}/
+        %h3.list__text
+          %span.text 
+            シンプル
+          で使いやすい
+        %p.description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.list.list--last
+        %div.list__pict
+          %span.number
+            3
+          %img{:class => "pic", :src => "http://furima.tokyo/assets/pict-reason-03-1e3c743f3ba3db8c43987d2e257916a615aa8fc59c02bbc116f041a5580ec28f.jpg"}/
+        %h3.list__text
+          手数料
+          -# %span.textの命名見直す
+          %span.text 
+            業界最安
+        %p.description
+          最大3%でお得に出品&購入！
+
+  %section.topMiddleDl
+    %div.topMiddleDl__inner
+      %h2.subtitle
+        会員数日本一位
+      %p.text
+        FURIMAは、フリマアプリで最も人気。
+        %br/
+        出品・購入回数も業界最多です！
+        %br/
+        ほしかったあの商品に出会えるかもしれません。
+      %div.btn
+        %a.aBtn{:href => "#"}
+          %img{:src => "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
+        %a.bBtn{:href => "#"}
+          %img{:src => "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
+
+  %section.topKeysfutures
+    %h2.head
+      FURIMAの特徴
+    %div.items
+      %section.item
+        %figure.item__img
+          %img{:class => "image__icon", :src => "http://furima.tokyo/assets/icon-01-7f6abf70ea7deaed9ab5d8b6d5cb796250e3e292b9ecdc559ebe6492c31fdab8.svg"}/
+        %h3.item__subtitle
+          簡単に売り買いできる
+        %p.tem__detail
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.item
+        %figure.item__img
+          %img{:class => "image__icon", :src => "http://furima.tokyo/assets/icon-03-9c0d78266a316fec7b738dcf5c68dd987afb9655b13fd2cd5d30bcf09e827694.svg"}/
+        %h3.item__subtitle
+          売上金は即日振込みに対応
+        %p.tem__detail
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします
+      %section.item
+        %figure.item__img
+          %img{:class => "image__icon", :src => "http://furima.tokyo/assets/icon-04-c4052f85cd6e1f62ea8cac8c55277d7fa4bda971d924f8a2afe72eea6558fa85.svg"}/
+        %h3.item__subtitle
+          様々な支払いに対応
+        %p.tem__detail
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+  %section.pickupContainer
+    %h2.head
+      ピックアップカテゴリー
+    %div.productBox
+      %div.productHead
+        %a{:href => "#"}
+          %h3.title
+            新規投稿商品
+      %div.productLists
+        %div.productList
+          %a{:href => "#"}
+            %figure.productList--img
+              %img{:class => "image__category", :src => "https://hennae.net/wp/wp-content/uploads/2020/04/b247_1-265x300.jpg"}/
+            %div.productList--body
+              %h3.product--name
+                product3
+              %div.details
+                %ul
+                  %li
+                    3000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                %p
+                  (税込み)
+        %div.productList
+          %a{:href => "#"}
+            %figure.productList--img
+              %img{:class => "image__category", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWgi72KtjSuQ5pFJ7oOOpbphvnM5n2FgFE-Rg98o3j362Bl21m&usqp=CAU"}/
+            %div.productList--body
+              %h3.product--name
+                product2
+              %div.details
+                %ul
+                  %li
+                    90,000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                %p
+                  (税込み)
+        %div.productList
+          %a{:href => "#"}
+            %figure.productList--img
+              %img{:class => "image__category", :src => "https://publicdomainq.net/images/201707/26s/publicdomainq-0011524pat.jpg"}/
+            %div.productList--body
+              %h3.product--name
+                product1
+              %div.details
+                %ul
+                  %li
+                    100円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                %p
+                  (税込み)
+
+  %section.pickupContainer
+    %h2.head
+      ピックアップブランド
+    %div.productBox
+      %div.productHead
+        %a{:href => "#"}
+          %h3.title
+            アーカイバ
+      %div.productLists
+        %div.productList
+          %a{:href => "#"}
+            %figure.productList--img
+              %img{:class => "image__category", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR0cEqrbWzpZZjQCllmGPJ9JOYiaHXPUapk9seutMlTMy9kce7a&usqp=CAU"}/
+            %div.productList--body
+              %h3.product--name
+                パンダ
+              %div.details
+                %ul
+                  %li
+                    800円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                %p
+                  (税込み)
+        %div.productList
+          %a{:href => "#"}
+            %figure.productList--img
+              %img{:class => "image__category", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTQDpZ7A0qlgoaIvge2OyXd9_Om5y-VWfPdJ529auQ1bBJFubMn&usqp=CAU"}/
+            %div.productList--body
+              %h3.product--name
+                割れ物
+              %div.details
+                %ul
+                  %li
+                    7,800円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                %p
+                  (税込み)
+        %div.productList
+          %a{:href => "#"}
+            %figure.productList--img
+              %img{:class => "image__category", :src => "https://hen8996.com/wp-content/uploads/2019/12/nezumi_2020_001-400x612.png"}/
+            %div.productList--body
+              %h3.product--name
+                椅子
+              %div.details
+                %ul
+                  %li
+                    6,600円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                %p
+                  (税込み)
