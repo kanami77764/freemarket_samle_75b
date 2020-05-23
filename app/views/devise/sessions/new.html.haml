@@ -1,0 +1,15 @@
+.login-content
+  %header.login-header
+    = render "layouts/header"
+  %main.login-main
+    %section.login-main__container
+      .login-form
+        .form-items
+          .items-adress
+            %input{:type => "text",placeholder: "メールアドレス", :class => "input"}
+          .items-password
+            %input{:type => "text",placeholder: "パスワード",:class => "input"}
+          %input{:type => "submit", :value => "ログイン",:class => "login-btn"}/
+  
+
+

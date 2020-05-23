@@ -1,0 +1,63 @@
+$color-item1: white;
+$color-item2: whitesmoke;
+
+.sing-content {
+  box-sizing: border-box;
+
+  .single-header{
+    width:100vw;
+    height:100px;
+  }
+  .sing-main {
+    background-color:$color-item2;
+    height: 900px;
+    width: 100vw;
+    
+    .single-main__container {
+      background-color:$color-item1;
+      width: 600px;
+      height: 900px;
+      margin: auto;
+      .sing-main__container__title {
+        height: 30px;
+        font-size: 20px;
+        text-align: center;
+        border-bottom: 1px #666666 solid;
+        padding-top: 20px;
+        font-weight: bolder;
+      }
+      .single-main__container__form {
+        background-color: $color-item1;
+        height: 100%;
+        padding-left: 200px;
+  
+        .form__contents {
+         background-color: $color-item1;
+         width: 300px;
+         height: 100%;
+   
+          .form-group {
+           padding: 5px;
+           font-weight: lighter;
+
+            .form-password-revelation-toggle{
+             padding:5px;
+            }
+          }
+          .sing-btn {
+            margin-top: 25px;
+            margin-left: 10px;
+            background-color:turquoise;
+            color: $color-item1;
+            width: 180px;
+            height: 30px;
+
+          }
+        }
+ 
+    }
+
+  }
+
+}
+}
