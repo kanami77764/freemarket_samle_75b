@@ -1,0 +1,99 @@
+.main-header
+  = render partial: 'layouts/header'
+.category-title
+  .category-title-title__contents
+    FURIMA > カテゴリー1 > カテゴリー2 > カテゴリー3 > 商品詳細画面（仮）
+
+.main-contents
+  .main-contents__show-main
+    .main-contents__show-main__item-box
+      .main-contents__show-main__item-box__item-name
+        商品名
+      .main-contents__show-main__item-box__item-image
+        %ul
+          %li= image_tag("test1.png", size:"500x350")
+          %ul
+            %li=image_tag("test2.png", size:"140x100")
+            %li=image_tag("test3.png", size:"140x100")
+            %li=image_tag("test4.png", size:"140x100")
+        
+      .main-contents__show-main__item-box__item-price
+        %p ¥商品値段
+        .main-contents__show-main__item-box__item-price__item-price-detail
+          (税込)送料込み
+
+      .main-contents__show-main__item-box__item-detail
+        ここに商品説明文を入れます。
+
+      .main-contents__show-main__item-box__item-table
+        %table
+          %tr.one
+            %th 出品者
+            %td 桐原
+          %tr.two
+            %th カテゴリー
+            %td カテゴリー名
+          %tr.tree
+            %th ブランド
+            %td ブランド名
+          %tr.tree
+            %th 商品のサイズ
+            %td M
+          %tr.one
+            %th 商品の状態
+            %td 未使用
+          %tr.one
+            %th 配送料の負担
+            %td 送料込み（出品者の負担）
+          %tr.one
+            %th 発送元の地域
+            %td 福岡県
+          %tr.one
+            %th 発送日の目安
+            %td 1-2日で発送
+
+      .main-contents__show-main__item-box__option-area
+        .main-contents__show-main__item-box__option-area__like-btn
+          = button_tag type: 'button', class: "like-btn" do
+            = icon('fa', 'thumbs-up')
+            お気に入り
+        .main-contents__show-main__item-box__option-area__optional
+          =link_to '#', class:"optional" do
+            = icon('fas','flag')
+            不適切な商品の通報
+
+      .main-contents__show-main__item-box__comment-box
+        =form_for '#' do |f|
+          .main-contents__show-main__item-box__comment-box__new-comment
+            = f.text_area :comment, class: "new-comment"
+          .main-contents__show-main__item-box__comment-box__explanation
+            %p 相手のことを考え丁寧なコメントを心がけましょう。
+            %p 不快な言葉遣いなどは利用制限や退会処分になることがあります。
+          .main-contents__show-main__item-box__comment-box__comment-btn
+            = button_tag type: 'submit', class: "comment-btn" do
+              = icon('fa', 'comment')
+              コメントする
+
+      .main-contents__show-main__item-box__change-page
+        .main-contents__show-main__item-box__change-page__back-item
+          =link_to '#', class:"back-btn" do
+            < 前の商品
+        .main-contents__show-main__item-box__change-page__next-item
+          =link_to '#', class:"next-btn" do
+            後の商品 >
+      .main-contents__show-main__item-box__related-items
+        =link_to '#', class:"related-items" do
+          ベビー・キッズをもっと見る
+
+.main-image
+  %aside.appBanner
+    .inner
+      %h2.innner__title
+        誰でも簡単、人生を変えるフリマアプリ
+      %p.innner__text
+        今すぐ無料ダウンロード
+      .main-image__inner__icon
+        = link_to '#' do
+          = image_tag 'http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg', class: 'linksicon aBtn'
+        = link_to '#' do
+          = image_tag 'http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg', class: 'linksicon bBtn'
