@@ -2,13 +2,13 @@
   .headerInner
     .mainHeader
       .icon
-        =image_tag("logo.png")
+        = image_tag ("logo.png")
       .searchBox
         = form_with(url: "#", local: true, method: :get, class: "form") do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox-input"
         %button{type: "submit"}
           .search-btn
-            =image_tag("icon-search 1.png")
+            = image_tag ("icon-search 1.png")
     .nav
       %ul.left-items
         %li.left-item1
