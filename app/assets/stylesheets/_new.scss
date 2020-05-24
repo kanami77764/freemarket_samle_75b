@@ -1,0 +1,161 @@
+.all{
+  .register_main{
+    background-color: silver;
+    .register_form{
+      margin: 0 auto;
+      background-color: #ffffff;
+      max-width: 600px;
+      width: 100%;
+      border-radius: 4px;
+      padding: 32px 24px;
+      .register_title{
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+      }
+      .image_register{
+        padding: 16px;
+        margin: 0;
+        border-bottom: solid 1px #999999;
+        border-top: solid 1px #999999;
+        .image_text-info{
+          margin-top: 16px;
+        }
+        .image_form{
+          display: flex;
+          margin-top: 16px;
+          height: 150px;
+          border: dotted 2px silver;
+          background-color: #999999;
+          position: relative;
+          .image_btn{
+            width: 100%;
+          }
+          img{
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            height: 24px;
+            width: 24px;
+          }
+        }
+      }
+      .item_register{
+        padding: 16px;
+        margin: 0;
+        border-bottom: solid 1px #999999;
+        .item_name_group{
+
+          .item_name_form{
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            height: 48px;
+            margin: 0;
+            outline: none;
+            padding: 0 16px;
+            width: 100%;
+          }
+        }
+        .item_info_group{
+          margin-top: 15px;
+          .item_info_form{
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+          }
+        }
+      }
+      .status_register{
+        padding: 16px;
+        margin: 0;
+        border-bottom: solid 1px #999999;
+        .status_brand_group{
+          margin-top: 15px;
+          .brand_form{
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 48px;
+          }
+        }
+        select{
+          height: 48px;
+          width: 100%;
+          .status_category_group{
+            margin-top: 15px;
+          }
+          .item_status_group{
+            margin-top: 15px;
+          }
+        }
+      }
+      .send_register{
+        padding: 16px;
+        margin: 0;
+        border-bottom: solid 1px #999999;
+        select{
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          width: 100%;
+          height: 48px;
+          .send_value_group{
+            margin-top: 15px;
+            .send_value_title{
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 1.4em;
+            }
+          }
+        }
+      }
+      .value_register{
+        padding: 16px;
+        margin: 0;
+        border-bottom: solid 1px #999999;
+        .value_form{
+          display: flex;
+          justify-content: flex-end;
+          .value_form_form{
+            text-align: right;
+          }
+        }
+      }
+      .register_btn{
+        padding: 16px;
+        margin: 0;
+        border-bottom: solid 1px #999999;
+        .register_btn_group{
+          text-align: center;
+          button{
+          border-radius: 4px;
+          box-sizing: border-box;
+          width: 100%;
+          height: 48px;
+          margin-bottom: 10px;
+          }
+          .register_btn_yes{
+            background-color: red;
+            color: seashell;
+          }
+          .register_btn_save{
+            background-color: silver;
+            color: black;
+          }
+          .register_btn_delete{
+            text-decoration: none;
+          }
+        }
+      }
+      .attentions{
+        padding: 16px;
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.4em;
+      }
+    }
+  }
+}
