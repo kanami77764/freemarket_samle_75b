@@ -2794,6 +2794,9 @@
             ブランド
       %ul.right-items
         %li.right-item1
-          %a{href: "#"}ログイン
+          = link_to new_user_session_path do
+            ログイン
         %li.right-item2
           %a{href: "#"}新規会員登録
+
+          -#  = link_to new_user_session_path, class: 'manage__btn' do
