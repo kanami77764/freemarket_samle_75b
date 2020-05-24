@@ -1,0 +1,223 @@
+$main-color: #f8f8f8;
+$sub-color: #3CCACE;
+$table-border: solid 1px #dedede;
+
+.category-title {
+  height: 40px;
+  width: 100%;
+  padding: 15px 0 5px 80px;
+  border: solid 1px $main-color;
+  ;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  &__contents {
+    height: 30px;
+    font-size: 10px;
+    line-height: 30px;
+  }
+}
+
+.main-contents {
+  background-color: $main-color;
+  height: 200vh;
+  width: 100%;
+  padding: 40px 0;
+  &__show-main {
+    height: 196vh;
+    width: 700px;
+    margin: 0 auto;
+    &__item-box {
+      background-color: white;
+      height: 150vh;
+      &__item-name {
+        height: 50px;
+        width: 100%;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 50px;
+        text-align: center;
+      }
+      &__item-image {
+        height: 480px;
+        width: 500px;
+        text-align: center;
+        margin: 0 auto;
+        li {
+          display: inline;
+        }
+      }
+      &__item-price {
+        height: 80px;
+        width: 100%;
+        text-align: center;
+        p {
+          font-size: 30px;
+          font-weight: bold;
+        }
+      }
+      &__item-detail {
+        height: 200px;
+        width: 600px;
+        font-size: 18px;
+        margin: 0 auto;
+      }
+      &__item-table {
+        height: 400px;
+        width: 600px;
+        font-size: 13px;
+        margin: 0 auto;
+        th {
+          background-color: #eee;
+          width: 150px;
+          border: $table-border;
+          text-align: center;
+        }
+        td {
+          width: 450px;
+          border: $table-border;
+          padding-left: 20px;
+        }
+        .one {
+          height: 50px;
+        }
+        .two {
+          height: 80px;
+        }
+        .tree {
+          height: 35px;
+        }
+      }
+      &__option-area {
+        height: 100px;
+        width: 600px;
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        &__like-btn {
+          height: 20px;
+          width: 130px;
+          .like-btn {
+            width: 100%;
+            font-size: 15px;
+            margin-right: auto;
+            padding: 6px 10px;
+            border-radius: 40px;
+            color: $sub-color;
+            border: 1px solid #ffb340;
+            cursor: pointer;
+          }
+        }
+        .optional {
+          font-size: 13px;
+          padding: 6px 10px;
+          display: inline-block;
+          border-radius: 4px;
+          color: #333;
+          border: 1px solid #333;
+          text-decoration: none;
+        }
+      }
+      &__comment-box {
+        background-color: white;
+        height: 300px;
+        width: 100%;
+        &__new-comment {
+          height: 100px;
+          width: 660px;
+          padding: 20px 20px 10px 20px;
+          .new-comment {
+            height: 100%;
+            width: 100%;
+            border: solid 1px rgb(46, 44, 44);
+            text-align: start;
+            overflow-wrap: break-word;
+          }
+        }
+        &__explanation {
+          background-color: $main-color;
+          height: 50px;
+          width: 650px;
+          font-size: 14px;
+          padding-left: 10px;
+          margin: 0 auto;
+          line-height: 25px;
+        }
+        &__comment-btn {
+          text-align: center;
+          line-height: 48px;
+          padding-top: 30px;
+          .comment-btn {
+            height: 50px;
+            background: $sub-color;
+            border: 1px solid $sub-color;
+            color: white;
+            width: 60%;
+            font-size: 18px;
+            border-radius: 100px;
+          }
+        }
+      }
+      &__change-page {
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        text-decoration: none;
+          .back-btn, .next-btn {
+            color: $sub-color;
+            text-decoration: none;
+        }
+      }
+      &__related-items {
+        height: 150px;
+        width: 100%;
+          .related-items {
+            color: $sub-color;
+            font-weight: bold;
+            font-size: 25px;
+            line-height: 75px;
+            text-decoration: none;
+          }
+      }
+    }
+  }
+}
+.main-image {
+  .appBanner {
+    background-image: url(http://furima.tokyo/assets/bg-appBanner-pict-ce684a4c4d5fa2da43c30a3839923591af75a642a3a906ad975065771ef3d72f.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 100px 40px;
+    position: relative;
+    .inner {
+      text-align: center;
+      color: #fff;
+      .innner__title {
+        text-shadow:0 0 5px rgba(0,0,0,0.4);
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+      .innner__text {
+        text-shadow:0 0 5px rgba(0,0,0,0.4);
+        font-size: 35px;
+      }
+      &__icon {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        margin: 20px auto 0;
+        a {
+          margin-right: 10px;
+          .aBtn {
+            width: 180px;
+          }
+        }
+        a {
+          .bBtn {
+            width: 180px;
+          }
+        }
+      }
+    }
+  }
+}
