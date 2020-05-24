@@ -3,25 +3,25 @@
     = render "layouts/header"
     %h1.single-header__logo
   %main.sing-main
-    %section.single-main__container
+    %section.sing-main__container
       %h2.sing-main__container__title
         会員情報入力
-      .single-main__container__form
+      .sing-main__container__form
         .form__contents
           .form-group
             %lavel nickname 
             %br
-            %input{:type => "text"}
+            %input{type:"text"}
             %span.form-group__require 必須
           .form-group
             %lavel メールアドレス
             %br
-            %input{:type => "text"}
+            %input{type:"text"}
             %span.form-group__require 必須
           .form-group
             %lavel パスワード 
             %br
-            %input{:type => "text"}
+            %input{type:"text"}
             %span.form-group__require 必須
             %p.form-group__info 
             .form-password-revelation-toggle
@@ -33,19 +33,19 @@
             .form-group
               %lavel 名前(全角)
               %br
-              %input{:type => "text",:size => "10"}
-              %input{:type => "text",:size => "10"}
+              %input{type: "text",size:"10"}
+              %input{type: "text",size:"10"}
               %span.form-group__require 必須
             .form-group
               %lavel 名前ふりがな
               %br
-              %input{:type => "text",:size => "10"}
-              %input{:type => "text",:size => "10"}
+              %input{type: "text",size:"10"}
+              %input{type: "text",size:"10"}
               %span.form-group__require 必須
             .form-group
               %lavel 生年月日 
               %br
-              %input{:type => "text"}
+              %input{type:"text"}
               %span.form-group__require 必須
               .birthday-select-wrap
               .clearfix
@@ -54,31 +54,31 @@
             .form-group
               %lavel 郵便番号 
               %br
-              %input{:type => "text"}
+              %input{type:"text"}
               %span.form-group__require 必須
               .form-group
                 %lavel 都道府県
                 %br
-                %input{:type => "text"}
+                %input{type:"text"}
                 %span.form-group__require 必須
               .form-group
                 %lavel 市町村
                 %br
-                %input{:type => "text"}
+                %input{type:"text"}
                 %span.form-group__require 必須
               .form-group
                 %lavel 番地
                 %br
-                %input{:type => "text"}
+                %input{type:"text"}
                 %span.form-group__require 必須
               .form-group
                 %lavel 建物名
                 %br
-                %input{:type => "text"}
+                %input{type:"text"}
                 %span.form-group__optional 任意
               .form-group
                 %lavel 電話番号
                 %br
-                %input{:type => "text"}
+                %input{type:"text"}
                 %span.form-group__optional 任意
-              %input{:type => "submit", :value => "登録",:class => "sing-btn"}/
+              %input{type:"submit", value:"登録",class: "sing-btn"}/

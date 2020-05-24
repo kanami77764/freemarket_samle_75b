@@ -13,12 +13,12 @@ $color-item2: whitesmoke;
     height: 900px;
     width: 100vw;
     
-    .single-main__container {
+    &__container {
       background-color:$color-item1;
       width: 600px;
       height: 900px;
       margin: auto;
-      .sing-main__container__title {
+      &__title {
         height: 30px;
         font-size: 20px;
         text-align: center;
@@ -26,7 +26,7 @@ $color-item2: whitesmoke;
         padding-top: 20px;
         font-weight: bolder;
       }
-      .single-main__container__form {
+      &__form {
         background-color: $color-item1;
         height: 100%;
         padding-left: 200px;
