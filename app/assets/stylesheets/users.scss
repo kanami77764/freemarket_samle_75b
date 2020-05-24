@@ -15,6 +15,10 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+.users-header {
+  width: 100%;
+  background-color: white;
+}
 
 .bread-crumbs {
   height: 40px;
@@ -49,7 +53,7 @@ body {
   }
 }
 
-.main {
+.users-main {
   height: 100%;
   width: 1100px;
   margin: 0 auto;

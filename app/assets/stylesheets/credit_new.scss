@@ -1,27 +1,29 @@
 $border-style: 1px solid #ccc;
 
-.header {
+.users-header {
   width: 100%;
+  background-color: white;
+}
   
-  &__title {
-    background-color: #f8f8f8;
-    height: 100px;
-    width: 100%;
-    padding-top: 10px;
-    
+.title {
+  background-color: #f8f8f8;
+  height: 100px;
+  width: 100%;
+  padding-top: 10px;
+  
 
-    &__contents {
-      height: 80px;
-      width: 700px;
-      background-color:white;
-      font-size: 20px;
-      font-weight: bold;
-      margin: 5px auto;
-      text-align: center;
-      line-height: 80px;
-    }
+  &__contents {
+    height: 80px;
+    width: 700px;
+    background-color:white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px auto;
+    text-align: center;
+    line-height: 80px;
   }
 }
+
 
 .main-form {
   background-color: #f8f8f8;
