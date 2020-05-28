@@ -8,77 +8,23 @@
         会員情報入力
       .sing-main__container__form
         .form__contents
-          .form-group
-            %lavel nickname 
-            %br
-            %input{type:"text"}
-            %span.form-group__require 必須
-          .form-group
-            %lavel メールアドレス
-            %br
-            %input{type:"text"}
-            %span.form-group__require 必須
-          .form-group
-            %lavel パスワード 
-            %br
-            %input{type:"text"}
-            %span.form-group__require 必須
-            %p.form-group__info 
-            .form-password-revelation-toggle
-              .checkbox-default
-                %input#reveal_password{type: "checkbox",class:"icon-check"}
-                %label{for: "reveal_password"} パスワードを表示する
-              .form-password-revelation-revealed-password-container
-                %span.form-password-revelation-revealed-password
+          = form_for(@user, url: user_registration_path) do |f|
+            = render "devise/shared/error_messages", resource: @user 
             .form-group
-              %lavel 名前(全角)
-              %br
-              %input{type: "text",size:"10"}
-              %input{type: "text",size:"10"}
+              = f.label :ニックネーム
               %span.form-group__require 必須
+              = f.text_field :name, {placeholder: "例) 博多華丸",class:'form-group__input'}
             .form-group
-              %lavel 名前ふりがな
-              %br
-              %input{type: "text",size:"10"}
-              %input{type: "text",size:"10"}
+              = f.label :メールアドレス
               %span.form-group__require 必須
+              = f.email_field :email, {autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可",class:'form-group__input'}
             .form-group
-              %lavel 生年月日 
-              %br
-              %input{type:"text"}
+              = f.label :パスワード
               %span.form-group__require 必須
-              .birthday-select-wrap
-              .clearfix
+              = f.password_field :password,{autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'form-group__input',id:"password"}
             .form-group
-              %p.form-group__text--center
-            .form-group
-              %lavel 郵便番号 
-              %br
-              %input{type:"text"}
+              = f.label :パスワード 
               %span.form-group__require 必須
-              .form-group
-                %lavel 都道府県
-                %br
-                %input{type:"text"}
-                %span.form-group__require 必須
-              .form-group
-                %lavel 市町村
-                %br
-                %input{type:"text"}
-                %span.form-group__require 必須
-              .form-group
-                %lavel 番地
-                %br
-                %input{type:"text"}
-                %span.form-group__require 必須
-              .form-group
-                %lavel 建物名
-                %br
-                %input{type:"text"}
-                %span.form-group__optional 任意
-              .form-group
-                %lavel 電話番号
-                %br
-                %input{type:"text"}
-                %span.form-group__optional 任意
-              %input{type:"submit", value:"登録",class: "sing-btn"}/
+              = f.password_field :password_confirmation,{autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'form-group__input',id:"password"}
+            .form-group
+              = f.submit '次へ', class: "btn-next", url: "profile_path"

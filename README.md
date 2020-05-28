@@ -19,10 +19,10 @@ has_many :items, dependent: :destroy
 |------|----|-------|
 |first_name|string|null:false|
 |family_name|string|null:false|
-|first_name_kana|string|null:false unless value.to_s =~/^[^ -~｡-ﾟ]*$/|
-|family_name_kana|string|null:false unless value.to_s =~/^[^ -~｡-ﾟ]*$/| 
+|first_name_kana|string|null:false|
+|family_name_kana|string|null:false|
 |birth_day|date|null:false|
-|introduction|text|validates :introduction,length:{maximum:140}|
+|introduction|text||
 |avatar|string||
 |user|references|null:false,foreign_key:true|
 Association
@@ -42,7 +42,7 @@ beolongs_to :user
 |------|----|-------|
 |destination_first_name|string|null:false|
 |destination_family_name|string|null:false|
-|destination_firse_name_kana|string|null: false unless value.to_s =~/^[^ -~｡-ﾟ]*$/|
+|destination_first_name_kana|string|null: false unless value.to_s =~/^[^ -~｡-ﾟ]*$/|
 |destination_family_name_kana|string|null: false unless value.to_s =~/^[^ -~｡-ﾟ]*$/|
 |post_code|integer(7)|null:false|
 |prefecture_code|integer|null:false|
@@ -53,7 +53,6 @@ beolongs_to :user
 |user|references|null: false,foreign_key:true|
 Association
 belongs_to: user
-
 #credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
