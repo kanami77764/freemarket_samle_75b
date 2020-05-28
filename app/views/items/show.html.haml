@@ -8,22 +8,23 @@
   .main-contents__show-main
     .main-contents__show-main__item-box
       .main-contents__show-main__item-box__item-name
-        商品名
+        = @items.name
       .main-contents__show-main__item-box__item-image
-        %ul
-          %li= image_tag("test1.png", size:"500x350")
-          %ul
-            %li=image_tag("test2.png", size:"140x100")
-            %li=image_tag("test3.png", size:"140x100")
-            %li=image_tag("test4.png", size:"140x100")
-        
+        .main-contents__show-main__item-box__item-image__main-img
+          - @items.item_imgs.first(1).each do |img|
+            = image_tag (img.url), size:"400x350"
+        .main-contents__show-main__item-box__item-image__sub-img
+          - @items.item_imgs.first(3).each do |img|
+            = image_tag (img.url), size:"140x100"
+          
       .main-contents__show-main__item-box__item-price
-        %p ¥商品値段
+        %p
+          = "#{@items.price}円" 
         .main-contents__show-main__item-box__item-price__item-price-detail
           (税込)送料込み
 
       .main-contents__show-main__item-box__item-detail
-        ここに商品説明文を入れます。
+        = @items.introduction
 
       .main-contents__show-main__item-box__item-table
         %table
@@ -32,25 +33,31 @@
             %td 桐原
           %tr.two
             %th カテゴリー
-            %td カテゴリー名
+            %td 
+              = @items.category
           %tr.tree
             %th ブランド
-            %td ブランド名
+            %td 
+              = @items.brand
           %tr.tree
             %th 商品のサイズ
-            %td M
+            %td 
+              = @items.size
           %tr.one
             %th 商品の状態
-            %td 未使用
+            %td 
+              = @items.item_condition
           %tr.one
             %th 配送料の負担
             %td 送料込み（出品者の負担）
           %tr.one
             %th 発送元の地域
-            %td 福岡県
+            %td 
+              = @items.prefecture_code
           %tr.one
             %th 発送日の目安
-            %td 1-2日で発送
+            %td 
+              = @items.preparation_day
 
       .main-contents__show-main__item-box__option-area
         .main-contents__show-main__item-box__option-area__like-btn
@@ -84,16 +91,3 @@
       .main-contents__show-main__item-box__related-items
         =link_to '#', class:"related-items" do
           ベビー・キッズをもっと見る
-
-.main-image
-  %aside.appBanner
-    .inner
-      %h2.innner__title
-        誰でも簡単、人生を変えるフリマアプリ
-      %p.innner__text
-        今すぐ無料ダウンロード
-      .main-image__inner__icon
-        = link_to '#' do
-          = image_tag 'http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg', class: 'linksicon aBtn'
-        = link_to '#' do
-          = image_tag 'http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg', class: 'linksicon bBtn'

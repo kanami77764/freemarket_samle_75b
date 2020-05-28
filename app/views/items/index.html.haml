@@ -14,6 +14,9 @@
           = image_tag 'http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg'
         = link_to '#', class: 'bBtn' do
           = image_tag 'http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg'
+
+
+
   %section.topIntroduction
     %h2.subtitle
       フリマが選ばれる三つの理由
@@ -49,6 +52,8 @@
         %p.description
           最大3%でお得に出品&購入！
 
+
+
   %section.topMiddleDl
     .topMiddleDl__inner
       %h2.topMiddleDl__inner__subtitle
@@ -64,6 +69,8 @@
           = image_tag 'http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg'
         = link_to '#', class: 'bBtn' do
           = image_tag 'http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg'
+
+
 
   %section.topKeysfutures
     %h2.head
@@ -91,6 +98,8 @@
         %p.item__detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
+
+
   %section.pickupContainer
     %h2.head
       ピックアップカテゴリー
@@ -100,51 +109,23 @@
           %h3.title
             新規投稿商品
       .productLists
-        .productList
-          = link_to '#' do
-            %figure.productList--img
-              = image_tag 'https://hennae.net/wp/wp-content/uploads/2020/04/b247_1-265x300.jpg', class: 'image__category'
-            .productList--body
-              %h3.product--name
-                product3
-              .details
-                %ul
-                  %li
-                    3000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                %p
-                  (税込み)
-        .productList
-          = link_to '#' do
-            %figure.productList--img
-              = image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWgi72KtjSuQ5pFJ7oOOpbphvnM5n2FgFE-Rg98o3j362Bl21m&usqp=CAU', class: 'image__category'
-            .productList--body
-              %h3.product--name
-                product2
-              .details
-                %ul
-                  %li
-                    90,000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                %p
-                  (税込み)
-        .productList
-          = link_to '#' do
-            %figure.productList--img
-              = image_tag 'https://publicdomainq.net/images/201707/26s/publicdomainq-0011524pat.jpg', class: 'image__category'
-            .productList--body
-              %h3.product--name
-                product1
-              .details
-                %ul
-                  %li
-                    100円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                %p
-                  (税込み)
+        - @items.each do |item|
+          .productList
+            = link_to item_path(item.id) do
+              %figure.productList--img
+                - item.item_imgs.each do |img|
+                  = image_tag (img.url), class: 'image__category'
+              .productList--body
+                %h3.product--name
+                  = item.name
+                .details
+                  %ul
+                    %li
+                      = "#{item.price}円" 
+                    %li
+                      %i.fa.fa-star.likeIcon
+                  %p
+                    (税込)
 
   %section.pickupContainer
     %h2.head
