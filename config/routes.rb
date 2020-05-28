@@ -9,8 +9,9 @@ Rails.application.routes.draw do
     post 'sending_destinations', to: 'users/registrations#create_sending_destination'
   end
   root 'items#index'
+
   resources :users, only: [:index, :new, :edit]
-  resources :items, only: :show
+  resources :items, only: [:show, :new]
   resources :buyers, only: :index
-  resources :items, only: :new
+
 end

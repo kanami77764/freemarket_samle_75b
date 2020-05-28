@@ -57,12 +57,13 @@
       %ul.my-page-lists
         %li
           .lists-info
-            = link_to "#" do
-              お知らせ
+            = link_to buyers_path do
+              購入確認ページ
+              -# お知らせ
           = icon('fas','angle-right')
         %li
           .lists-info
-            = link_to "#" do
+            = link_to new_item_path do
               出品する
           = icon('fas','angle-right')
         %li
@@ -90,7 +91,7 @@
 
         %li.list-setting
           .list-setting__info
-            =link_to "#" do
+            =link_to new_user_path do
               クレジットカード登録・変更
           = icon('fas','angle-right')
         %li.list-setting

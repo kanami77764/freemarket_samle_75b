@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_05_25_021422) do
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -42,6 +43,45 @@ ActiveRecord::Schema.define(version: 2020_05_25_021422) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sending_destinations_on_user_id"
   end
+end
+ActiveRecord::Schema.define(version: 2020_05_25_055606) do
+
+  create_table "item_imgs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "url", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_imgs_on_item_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "introduction"
+    t.integer "price"
+    t.text "brand"
+    t.text "item_condition"
+    t.text "postage_payer"
+    t.integer "prefecture_code"
+    t.text "size"
+    t.text "preparation_day"
+    t.text "postage_type"
+    t.bigint "category"
+    t.text "trading_status"
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
+  end
+
+  create_table "miss", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "ancestry", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -59,4 +99,8 @@ ActiveRecord::Schema.define(version: 2020_05_25_021422) do
 
   add_foreign_key "profiles", "users"
   add_foreign_key "sending_destinations", "users"
+
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
+
 end
