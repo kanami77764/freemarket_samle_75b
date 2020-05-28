@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all.order('id ASC').limit(3)
-    # @item_imgs = ItemImg.all
   end
 
   def new 
@@ -9,8 +8,6 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
-    # @item_imgs = ItemImg.find(params[:id])
-    # @item_imgs = @items.item_imgs
   end
 
   private

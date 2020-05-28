@@ -9,6 +9,9 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = yield
+    -# 以下の文は集品詳細ページ作成の際にappBannerとfooterがかぶってしまい
+    -# ビューが崩れてしまうため一旦コメントアウトにしています。
+    -# どのページが必要か調整しますのでこのままコメントアウトにしておきます。
     -# %aside.appBanner
     -#   .inner
     -#     %h2.innner__title
