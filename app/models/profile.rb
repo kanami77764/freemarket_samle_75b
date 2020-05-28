@@ -11,7 +11,7 @@ class Profile < ApplicationRecord
   },presence: true
 
   validates :birth_day, presence: true
-
+  
   validates :first_name, format: {
     with: /\A[^ -~｡-ﾟ]+\z/,
     message: "全角で入力して下さい"
@@ -21,10 +21,6 @@ class Profile < ApplicationRecord
     with: /\A[^ -~｡-ﾟ]+\z/,
     message: "全角で入力して下さい"
   },presence: true
-
-
-
-
 end
 
 
