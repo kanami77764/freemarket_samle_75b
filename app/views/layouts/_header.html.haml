@@ -2793,9 +2793,15 @@
           = link_to "#" do
             ブランド
       %ul.right-items
-        %li.right-item1
-          = link_to new_user_session_path do
-            ログイン
-        %li.right-item2
-          = link_to new_user_registration_path do
-            新規会員登録
+        - if user_signed_in?
+          %li.right-item3
+            = link_to users_path (current_user) do
+              マイページ
+        - else
+          %li.right-item1
+            = link_to new_user_session_path do
+              ログイン
+          %li.right-item2
+            = link_to new_user_registration_path do
+              新規会員登録
+      

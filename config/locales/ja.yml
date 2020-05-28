@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      profile: プロフィール
+      sending_destination: 商品送付先住所情報
+    attributes:
+      user:
+        name: ニックネーム
+        password: パスワード
+        email: メールアドレス
+      profile: 
+        first_name: 名前
+        family_name: 名字
+        first_name_kana: 名前フリガナ
+        family_name_kana: 名字フリガナ
+        birth_day: 誕生日
+      sending_destination: 
+        destination_first_name: 送付先名前
+        destination_family_name: 送付先名字
+        destination_first_name_kana: 送付先名前フリガナ
+        destination_family_name_kana: 送付先名字フリガナ
+        post_code: 郵便番号
+        prefecture_code: 都道府県
+        city: 市町村
+        house_number: 番地
+        
