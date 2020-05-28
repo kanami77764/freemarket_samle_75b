@@ -5,6 +5,5 @@
     .l-side 
     .r-content
       .from-logout-inner
-        %input{type: "submit", value: "ログアウト",class:"logout-btn"}/
-
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
         
