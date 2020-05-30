@@ -15,8 +15,8 @@ class Item < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
 
-  has_many :comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  # has_many :comments, dependent: :destroy
+  # has_many :favorites, dependent: :destroy
   has_many :item_imgs, dependent: :destroy
   belongs_to :category
   belongs_to :user

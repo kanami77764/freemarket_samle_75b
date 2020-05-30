@@ -5,28 +5,29 @@
     FURIMA > カテゴリー1 > カテゴリー2 > カテゴリー3 > 商品詳細画面（仮）
 
 .main-contents
-  .main-contents__show-main
-    .main-contents__show-main__item-box
-      .main-contents__show-main__item-box__item-name
+  .show-main
+    .show-main__item-box
+      .show-main__item-box__item-name
         = @items.name
-      .main-contents__show-main__item-box__item-image
-        .main-contents__show-main__item-box__item-image__main-img
+      .show-main__item-box__item-image
+        .show-main__item-box__item-image__main-img
           - @items.item_imgs.first(1).each do |img|
             = image_tag (img.url), size:"400x350"
-        .main-contents__show-main__item-box__item-image__sub-img
+        .show-main__item-box__item-image__sub-img
           - @items.item_imgs.first(3).each do |img|
             = image_tag (img.url), size:"140x100"
           
-      .main-contents__show-main__item-box__item-price
+      .show-main__item-box__item-price
         %p
           = "#{@items.price}円" 
-        .main-contents__show-main__item-box__item-price__item-price-detail
+        .show-main__item-box__item-price__item-price-detail
           (税込)送料込み
+        .show-main__item-box__item-price__item-price-btn
+          %button#purchase-btn  商品を購入する
+        .show-main__item-box__item-detail
+          = @items.introduction
 
-      .main-contents__show-main__item-box__item-detail
-        = @items.introduction
-
-      .main-contents__show-main__item-box__item-table
+      .show-main__item-box__item-table
         %table
           %tr.one
             %th 出品者
@@ -59,35 +60,41 @@
             %td 
               = @items.preparation_day
 
-      .main-contents__show-main__item-box__option-area
-        .main-contents__show-main__item-box__option-area__like-btn
+
+      .show-main__item-box__option-area
+        .show-main__item-box__option-area__like-btn
           = button_tag type: 'button', class: "like-btn" do
             = icon('fa', 'thumbs-up')
             お気に入り
-        .main-contents__show-main__item-box__option-area__optional
+        .show-main__item-box__option-area__delete-area
+          - if user_signed_in? && current_user.id == @items.seller_id
+            = link_to item_path(@items), method: :delete, class: "delete__btn" do
+              商品を削除する
+
+        .show-main__item-box__option-area__optional
           =link_to '#', class:"optional" do
             = icon('fas','flag')
             不適切な商品の通報
 
-      .main-contents__show-main__item-box__comment-box
+      .show-main__item-box__comment-box
         =form_for '#' do |f|
-          .main-contents__show-main__item-box__comment-box__new-comment
+          .show-main__item-box__comment-box__new-comment
             = f.text_area :comment, class: "new-comment"
-          .main-contents__show-main__item-box__comment-box__explanation
+          .show-main__item-box__comment-box__explanation
             %p 相手のことを考え丁寧なコメントを心がけましょう。
             %p 不快な言葉遣いなどは利用制限や退会処分になることがあります。
-          .main-contents__show-main__item-box__comment-box__comment-btn
+          .show-main__item-box__comment-box__comment-btn
             = button_tag type: 'submit', class: "comment-btn" do
               = icon('fa', 'comment')
               コメントする
 
-      .main-contents__show-main__item-box__change-page
-        .main-contents__show-main__item-box__change-page__back-item
-          =link_to '#', class:"back-btn" do
-            < 前の商品
-        .main-contents__show-main__item-box__change-page__next-item
-          =link_to '#', class:"next-btn" do
-            後の商品 >
-      .main-contents__show-main__item-box__related-items
-        =link_to '#', class:"related-items" do
-          ベビー・キッズをもっと見る
+  .link-change-page
+    .link-change-page__back-item
+      =link_to '#', class:"back-btn" do
+        < 前の商品
+    .link-change-page__next-item
+      =link_to '#', class:"next-btn" do
+        後の商品 >
+  .related-items-link
+    =link_to '#', class:"related-items" do
+      ベビー・キッズをもっと見る
