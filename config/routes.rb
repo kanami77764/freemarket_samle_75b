@@ -4,5 +4,12 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new]
   resources :items, only: [:show, :new]
   resources :buyers, only: :index
-  # resources :items, only: :new
+  
+  resources :items do 
+    collection do
+      get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+      get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
 end

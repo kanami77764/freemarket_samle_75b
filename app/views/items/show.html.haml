@@ -29,10 +29,17 @@
         %table
           %tr.one
             %th 出品者
-            %td 桐原
+            %td
+              = @item.name
           %tr.two
             %th カテゴリー
-            %td カテゴリー名
+            %td
+              = @parent.name
+              %br
+              = @child.name
+              %br
+              = @grandchild.name
+              
           %tr.tree
             %th ブランド
             %td ブランド名
@@ -84,16 +91,3 @@
       .main-contents__show-main__item-box__related-items
         =link_to '#', class:"related-items" do
           ベビー・キッズをもっと見る
-
-.main-image
-  %aside.appBanner
-    .inner
-      %h2.innner__title
-        誰でも簡単、人生を変えるフリマアプリ
-      %p.innner__text
-        今すぐ無料ダウンロード
-      .main-image__inner__icon
-        = link_to '#' do
-          = image_tag 'http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg', class: 'linksicon aBtn'
-        = link_to '#' do
-          = image_tag 'http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg', class: 'linksicon bBtn'

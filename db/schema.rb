@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_055606) do
+ActiveRecord::Schema.define(version: 2020_05_29_085626) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "ancestry", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "item_imgs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "url", null: false
@@ -31,21 +38,15 @@ ActiveRecord::Schema.define(version: 2020_05_25_055606) do
     t.text "size"
     t.text "preparation_day"
     t.text "postage_type"
-    t.bigint "category"
     t.text "trading_status"
     t.bigint "seller_id"
     t.bigint "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
-  end
-
-  create_table "miss", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "ancestry", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
