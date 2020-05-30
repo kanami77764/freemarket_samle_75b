@@ -31,11 +31,17 @@
         %table
           %tr.one
             %th 出品者
-            %td 桐原
+            %td
+              = @item.name
           %tr.two
             %th カテゴリー
-            %td 
-              = @items.category
+            %td
+              = @parent.name
+              %br
+              = @child.name
+              %br
+              = @grandchild.name
+              
           %tr.tree
             %th ブランド
             %td 

@@ -25,25 +25,17 @@
           %textarea.item_info_form{name: "description", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", rows: "7"}
 
 
+      
       .status_register
-        .status_category_group
-          .register_title
-            カテゴリー
-          %select{name: ""}
-            %option{value: ""}選択してください
-            %option{value: ""} レディース
-            %option{value: ""} メンズ
-            %option{value: ""} ベビー・キッズ
-            %option{value: ""} インテリア・住まい・小物
-            %option{value: ""} 本・音楽・ゲーム
-            %option{value: ""} おもちゃ・ホビー・グッズ
-            %option{value: ""} コスメ・香水・美容
-            %option{value: ""} 家電・スマホ・カメラ
-            %option{value: ""} スポーツ・レジャー
-            %option{value: ""} ハンドメイド
-            %option{value: ""} チケット
-            %option{value: ""} 自動車・オートバイ
-            %option{value: ""} その他
+        = form_with(model: @item, local: true) do |form|
+          .status_register__status_category_group
+            .status_register__status_category_group__category
+              .status_register__status_category_group__category__register_title
+                カテゴリー
+              .status_register__status_category_group__category__choose
+                = form.collection_select :category_id, @category, :id, :name, {prompt: '---'}, {id: 'parent_category'}
+
+
         .status_brand_group
           .register_title
             ブランド

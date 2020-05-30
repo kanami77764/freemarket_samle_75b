@@ -11,7 +11,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text :size, foreign_key: true
       t.text :preparation_day, foreign_key: true
       t.text :postage_type, foreign_key: true
-      t.bigint :category, foreign_key: true
+      t.references :category, foreign_key: true
       t.text :trading_status
       t.references :seller
       t.references :buyer
