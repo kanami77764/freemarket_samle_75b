@@ -2,22 +2,19 @@ $color-item1: white;
 $color-item2: whitesmoke;
 $color-item3: turquoise;
 
-.sing-content {
+.sending-content {
   box-sizing: border-box;
 
-  .single-header{
-    width:100vw;
-    height:100px;
-  }
-  .sing-main  {
+  
+  .sending-main  {
     background-color:$color-item2;
     height: 900px;
     width: 100vw;
     
-    &__container {
+    &__content {
       background-color:$color-item1;
       width: 600px;
-      height: 900px;
+      height: 1100px;
       margin: auto;
       &__title {
         height: 30px;
@@ -33,39 +30,50 @@ $color-item3: turquoise;
         height: 100%;
         padding-left: 160px;
   
-        .form__contents {
+        &__part {
          background-color: $color-item1;
          width: 300px;
          height: 100%;
-
-
-          .new_user {
-            margin-top: 50px;
-          
-          
-            .form-group {
+       
+          .new_sending_destination {
+            margin-top: 30px;
+            height: 100%;
+         
+            .sending-group {
               font-size: 16px;
               &__input {
-                margin-bottom: 40px;
+                margin-bottom: 25px;
                 border-radius: 5px;
                 width: 280px;
                 height: 40px;
               }
-              &__require {
+              &__input--left {
+                margin-bottom: 25px;
+                border-radius: 5px;
+                width: 130px;
+                height: 40px;
+              }
+              &__input--right {
+                margin-bottom: 25px;
+                margin-right: 20px;
+                border-radius: 5px;
+                width: 130px;
+                height: 40px;
+                float: right;
+              }
+              .sending-group__require {
               background-color: $color-item3;
               border: solid 1px $color-item3;
               color:  $color-item1;
              }
-              .btn-next {
+              .new-singup-btn {
                 width: 280px;
                 height: 40px;
                 background-color: $color-item3;
                 color:  $color-item1;
-              }
-          
+              }         
             }
           }
-        
         }
       }
     }

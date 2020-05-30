@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.all.order('id ASC').limit(3)
   end
 
   def new 
@@ -15,9 +16,24 @@ class ItemsController < ApplicationController
     end
   
   def show
-    @item = Item.find(2)
-    @grandchild = Category.find(@item.category_id)
+    @items = Item.find(params[:id])
+    @grandchild = Category.find(@items.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
   end
+
+  def destroy
+    @items = Item.find(params[:id])
+    @items.destroy
+    redirect_to root_path
+    
+  end
+  
+
+  private
+  def item_params
+    params.require(:item).permit(:name, :price)
+  end
 end
+
+
