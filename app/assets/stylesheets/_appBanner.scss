@@ -7,17 +7,17 @@
   .inner {
     text-align: center;
     color: #fff;
-    .innner__title {
+    &__title {
       text-shadow:0 0 5px rgba(0,0,0,0.4);
       font-size: 24px;
       font-weight: bold;
       line-height: 1.4;
     }
-    .innner__text {
+    &__text {
       text-shadow:0 0 5px rgba(0,0,0,0.4);
       font-size: 35px;
     }
-    .inner__icon {
+    &__icon {
       width: 100px;
       display: flex;
       justify-content: center;
