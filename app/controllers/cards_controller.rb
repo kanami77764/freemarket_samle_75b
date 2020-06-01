@@ -8,7 +8,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def pay #payjpとCardのデータベース作成
+  def pay #payjpとCardのデータベース作成(チームのための記述です)
     Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -27,7 +27,6 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    # card = Card.where(user_id: current_user.id).first
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
     else

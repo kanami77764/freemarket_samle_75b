@@ -10,7 +10,19 @@
         %span.form-group__require 必須
         %br
         = text_field_tag "number", "", class: "form-group__input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
-
+        %ul.card-list
+          %li.icon-visa
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://upload.wikimedia.org/wikipedia/commons/1/16/Former_Visa_%28company%29_logo.svg" }/
+          %li.icon-master
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1200px-Mastercard-logo.svg.png" }/
+          %li.icon-saison
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Saison_card_logo.svg/1024px-Saison_card_logo.svg.png" }/
+          %li.icon-jcb
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/JCB_logo.svg/776px-JCB_logo.svg.png" }/
+          %li.icon-amex
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://cdn.worldvectorlogo.com/logos/american-express-630.svg" }/
+          %li.icon-diners
+            %img{:alt => "", :width => "40", :height => "30", :src => "https://cdn.worldvectorlogo.com/logos/american-express-630.svg" }/
       .form-group
         %label 有効期限
         %span.form-group__require 必須

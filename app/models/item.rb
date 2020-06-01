@@ -19,7 +19,7 @@ class Item < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :item_imgs, dependent: :destroy
 
-  belongs_to :saller, class_name: "User"
+  belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User"
   belongs_to :category, foreign_key: true
   belongs_to :user, foreign_key: 'user_id'
