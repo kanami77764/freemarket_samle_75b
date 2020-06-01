@@ -1,8 +1,14 @@
 .main-header
   = render partial: 'layouts/header'
-.category-title
-  .category-title-title__contents
-    FURIMA > カテゴリー1 > カテゴリー2 > カテゴリー3 > 商品詳細画面（仮）
+  %nav.bread-crumbs
+    %ul
+      %li 
+        = link_to root_path do
+          furima
+        = icon('fas','angle-right')
+      %li 
+        - breadcrumb :items_show
+        = breadcrumbs separator: " &rsaquo; "
 
 .main-contents
   .show-main

@@ -1,6 +1,15 @@
 .all
   .header
     = render "layouts/header"
+    %nav.bread-crumbs
+      %ul
+        %li 
+          = link_to root_path do
+            furima
+          = icon('fas','angle-right')
+        %li 
+          - breadcrumb :items_new
+          = breadcrumbs separator: " &rsaquo; "
   .register_main
     .register_form
       .image_register
