@@ -1,6 +1,15 @@
 .contents
   %header.main-header 
     = render "layouts/header"
+    %nav.bread-crumbs
+      %ul
+        %li 
+          = link_to root_path do
+            furima
+          = icon('fas','angle-right')
+        %li 
+          - breadcrumb :logout
+          = breadcrumbs separator: " &rsaquo; "
   %main.defalut-container
     .l-side 
     .r-content
