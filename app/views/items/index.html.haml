@@ -111,7 +111,7 @@
       .productLists
         - @items.each do |item|
           .productList
-            = link_to item_path(item.id) do
+            = link_to item_path(item) do
               %figure.productList--img
                 - item.item_imgs.first(1).each do |img|
                   = image_tag (img.url), class: 'image__category'
