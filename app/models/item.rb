@@ -40,9 +40,14 @@ class Item < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  belongs_to :category
-  belongs_to :user,optional:true
 
+  belongs_to :saller, class_name: "User"
+  belongs_to :buyer, class_name: "User"
+  belongs_to :category, foreign_key: true
+  belongs_to :user, foreign_key: 'user_id',optional:true
+  
+  
   has_many :item_imgs, inverse_of: :item,dependent: :destroy
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
+
 end

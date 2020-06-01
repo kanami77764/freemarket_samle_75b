@@ -99,7 +99,6 @@
           font-size: 24px;
           line-height: 50px;
           margin: 0 0 0 2;
-          // span(.text)の命名見直す
           .text {
             color: salmon;
           }
@@ -170,7 +169,6 @@
       width: 100%;
       margin: 0 auto;
       display: flex;
-      // flex-wrap: wrap;
       .item {
         display: flex;
         flex-direction: column;
@@ -181,7 +179,6 @@
           width: 70%;
           margin: 0 auto;
           line-height: 120px;
-          // svgの画像反映させる
           &__icon {
             width: 100%;
             vertical-align: bottom;
@@ -233,7 +230,6 @@
         .productList {
           width: 220px;
           display: inline-block;
-          // float: left;
           a {
             display: inline-block;
             background-color: white;
@@ -245,6 +241,29 @@
               overflow: hidden;
               margin: 0;
               z-index: auto;
+              &__items-sold{
+                width: 0;
+                height: 0;
+                border-width: 100px 100px 0 0;
+                border-color: #ea352d transparent transparent transparent;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                border-style: solid;
+                &__inner{
+                  top: -80px;
+                  font-size: 20px;
+                  position: absolute;
+                  left: 0;
+                  z-index: 2;
+                  color: #fff;
+                  transform: rotate(-45deg);
+                  letter-spacing: 2px;
+                  font-weight: 600;
+                }
+              }
               .image__category {
                 position: absolute;
                 top: 0;
@@ -328,7 +347,6 @@
 
 .display-item {
   .purchaseBtn {
-    // 見本のwidthは120px
     width: 120px;
     background: #3ccace;
     text-align: center;
