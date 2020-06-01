@@ -13,8 +13,6 @@ $btn-color: red;
     &__item-box {
       background-color: white;
       height: 156vh;
-  
-  
       &__item-name {
         height: 50px;
         width: 100%;
@@ -22,9 +20,30 @@ $btn-color: red;
         font-weight: bold;
         line-height: 50px;
         text-align: center;
-  
-      
-      
+        position: relative;
+        &__sold{
+          width: 0;
+          height: 0;
+          border-width: 140px 140px 0 0;
+          border-color: #ea352d transparent transparent transparent;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          border-style: solid;
+          &__inner{
+            top: -110px;
+            font-size: 30px;
+            position: absolute;
+            left: 0;
+            z-index: 2;
+            color: #fff;
+            transform: rotate(-45deg);
+            letter-spacing: 2px;
+            font-weight: 600;
+          }
+        }
       }
 
       &__item-image {
@@ -34,6 +53,7 @@ $btn-color: red;
         margin: auto;
        
       }
+
       &__item-price {
        
         text-align: center;
@@ -52,6 +72,7 @@ $btn-color: red;
         }
 
       }
+
       &__item-detail {
         height: 100px;
         width: 600px;
@@ -185,66 +206,25 @@ $btn-color: red;
     margin: auto;
   
 
-      .back-btn, .next-btn {
-        color: $sub-color;
-        text-decoration: none;
+    .back-btn, .next-btn {
+      color: $sub-color;
+      text-decoration: none;
+        .back-btn, .next-btn {
+          color: $sub-color;
+          text-decoration: none;
+      }
     }
-  }
-
-.related-items-link {
-  height: 35px;
-  width: 700px;
-  margin: auto;
- 
-  .related-items {
-    color: $sub-color;
-    font-weight: bold;
-    font-size: 25px;
-    line-height: 75px;
-    text-decoration: none;
-  }
-  }
-
-
-
-  .main-image {
-    .appBanner {
-      background-image: url(http://furima.tokyo/assets/bg-appBanner-pict-ce684a4c4d5fa2da43c30a3839923591af75a642a3a906ad975065771ef3d72f.jpg);
-      background-position: center;
-      background-size: cover;
-      padding: 100px 40px;
-      position: relative;
-      .inner {
-        text-align: center;
-        color: #fff;
-        .innner__title {
-          text-shadow:0 0 5px rgba(0,0,0,0.4);
-          font-size: 24px;
-          font-weight: bold;
-          line-height: 1.4;
-        }
-        .innner__text {
-          text-shadow:0 0 5px rgba(0,0,0,0.4);
-          font-size: 35px;
-        }
-        &__icon {
-          width: 100px;
-          display: flex;
-          justify-content: center;
-          margin: 20px auto 0;
-          a {
-            margin-right: 10px;
-            .aBtn {
-              width: 180px;
-            }
-          }
-          a {
-            .bBtn {
-              width: 180px;
-            }
-          }
-        }
+    &__related-items {
+      height: 100px;
+      width: 100%;
+      .related-items {
+        color: $sub-color;
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 75px;
+        text-decoration: none;
       }
     }
   }
 }
+

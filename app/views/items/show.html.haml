@@ -15,6 +15,10 @@
     .show-main__item-box
       .show-main__item-box__item-name
         = @items.name
+          -if @items.buyer_id.present? 
+          .main-contents__show-main__item-box__item-name__sold
+            .main-contents__show-main__item-box__item-name__sold__inner 
+              SOLD
       .show-main__item-box__item-image
         .show-main__item-box__item-image__main-img
           - @items.item_imgs.first(1).each do |img|
@@ -110,3 +114,6 @@
   .related-items-link
     =link_to '#', class:"related-items" do
       ベビー・キッズをもっと見る
+
+= render partial: 'layouts/appBanner'
+= render partial: 'layouts/footer'
