@@ -1,5 +1,14 @@
 .header
   = render "layouts/header"
+  %nav.bread-crumbs
+    %ul
+      %li 
+        = link_to root_path do
+          furima
+        = icon('fas','angle-right')
+      %li 
+        - breadcrumb :items_new
+        = breadcrumbs separator: " &rsaquo; "
 .items_new_page
   .items_register_form
     = form_with model: @item, local: true do |form|
@@ -18,9 +27,13 @@
         = form.text_field :name, placeholder:"40文字まで", class:"item_name_form"
         = form.label "商品の説明"
         = form.text_area :introduction, placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", value: "", class: "item_info_form"
-      .form_section.status_register
-        = form.label 'カテゴリー'
-        = form.select :category_id,[ ["レディース",1], ["メンズ", 2], ["ベビー・キッズ", 3 ] ,["インテリア", 4], ["本・音楽・ゲーム", 5], ["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9],["ハンドメイド", 10],["チケット", 11],["自動車・オートバイ", 12],["その他", 12] ], prompt: "選択してください"
+        .status_register
+          .status_register__status_category_group
+            .status_register__status_category_group__category
+              .status_register__status_category_group__category__register_title
+                = form.label 'カテゴリー'
+              .status_register__status_category_group__category__choose
+                = form.collection_select :category_id, @category, :id, :name,{prompt: '---'}, {id: 'parent_category'}
         = form.label "ブランド"
         = form.text_field :brand , placeholder: "例）シャネル"
         = form.label "商品の状態"
