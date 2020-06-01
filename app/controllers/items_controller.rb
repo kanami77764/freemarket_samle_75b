@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show]
+  
   def index
     @items = Item.all.order('id ASC').limit(3)
   end
@@ -33,6 +35,10 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :price)
+  end
+
+  def move_to_index
+    redirect_to items_path unless user_signed_in?
   end
 end
 

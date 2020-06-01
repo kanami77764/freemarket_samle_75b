@@ -1,0 +1,38 @@
+.appBanner {
+  background-image: url(http://furima.tokyo/assets/bg-appBanner-pict-ce684a4c4d5fa2da43c30a3839923591af75a642a3a906ad975065771ef3d72f.jpg);
+  background-position: center;
+  background-size: cover;
+  padding: 100px 40px;
+  position: relative;
+  .inner {
+    text-align: center;
+    color: #fff;
+    &__title {
+      text-shadow:0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__text {
+      text-shadow:0 0 5px rgba(0,0,0,0.4);
+      font-size: 35px;
+    }
+    &__icon {
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      a {
+        margin-right: 10px;
+        .aBtn {
+          width: 180px;
+        }
+      }
+      a {
+        .bBtn {
+          width: 180px;
+        }
+      }
+    }
+  }
+}
