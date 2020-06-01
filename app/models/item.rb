@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   validates :postage_type, null: false
   validates :category, null: false
   validates :trading_status, null: false
-  validates :seller, null: false
+  validates :seller, null:false
   validates :name, length:{maximum:40}
   validates :introduction, length:{maximum:1000}
 
@@ -41,9 +41,9 @@ class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  belongs_to :saller, class_name: "User"
-  belongs_to :buyer, class_name: "User"
-  belongs_to :category, foreign_key: true
+  belongs_to :seller, class_name: "User"
+  belongs_to :buyer, class_name: "User",optional:true
+  belongs_to :category
   belongs_to :user, foreign_key: 'user_id',optional:true
   
   
