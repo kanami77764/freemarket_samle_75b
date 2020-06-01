@@ -1,153 +1,41 @@
-.all
-  .header
-    = render "layouts/header"
-  .register_main
-    .register_form
-      .image_register
-        .image_area
-          .register_title
-            出品画像
-          .image_text-info
-            最大10枚までアップロードできます。
-          %label
-            .image_form
-              %input.image_btn{accept: "image/png,image/jpeg", autocomplete: "off", multiple: "multiple", style: "display:none", tabindex: "-1", type: "file"}/
-              .image-btn-image
-              = image_tag ('icon_camera.png')
-      .item_register
-        .item_name_group
-          .register_title
-            商品名
-          %input.item_name_form{autocomplete: "off", name: "name", placeholder: "40文字まで", type: "text", value: ""}/
-        .item_info_group
-          .register_title
-            商品の説明
-          %textarea.item_info_form{name: "description", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", rows: "7"}
+.header
+  = render "layouts/header"
+.items_new_page
+  .items_register_form
+    = form_with model: @item, local: true do |form|
+      .form_section.image_register
+        = form.label '出品画像'
+        .image_lists
+          #image-box-1
+            .item-num-0#image-box__container
+          %label{for: "img-file"}
+            = form.fields_for :item_imgs do |i|
+              .image-form
+                =i.file_field :image, type: 'file', name: "item[item_imgs_attributes][][url]", value:"", id:"img-file"
+                = image_tag ('icon_camera.png')
+      .form_section.item_register
+        = form.label '商品名'
+        = form.text_field :name, placeholder:"40文字まで", class:"item_name_form"
+        = form.label "商品の説明"
+        = form.text_area :introduction, placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", value: "", class: "item_info_form"
+      .form_section.status_register
+        = form.label 'カテゴリー'
+        = form.select :category_id,[ ["レディース",1], ["メンズ", 2], ["ベビー・キッズ", 3 ] ,["インテリア", 4], ["本・音楽・ゲーム", 5], ["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9],["ハンドメイド", 10],["チケット", 11],["自動車・オートバイ", 12],["その他", 12] ], prompt: "選択してください"
+        = form.label "ブランド"
+        = form.text_field :brand , placeholder: "例）シャネル"
+        = form.label "商品の状態"
+        = form.select :item_condition,Item.item_conditions.keys,{include_blank: "選択してください"}
+      .form_section.send_register
+        = form.label '配送料の負担'
+        = form.select :postage_payer,Item.postage_payers.keys,{include_blank: "選択してください"}
+        = form.label '配送元の地域'
+        = form.select :prefecture_code, Item.prefecture_codes.keys, {include_blank: "選択してください"}
+        = form.label '発送までの日数'
+        = form.select :preparation_day,Item.preparation_days.keys,{include_blank: "選択してください"}
+      .form_section.value_register
+        = form.label '販売価格'
+        = form.number_field :price, class:"value_form"
+      .form_section.register_btns
+        = form.submit "出品する"
+      
 
-
-      .status_register
-        .status_category_group
-          .register_title
-            カテゴリー
-          %select{name: ""}
-            %option{value: ""}選択してください
-            %option{value: ""} レディース
-            %option{value: ""} メンズ
-            %option{value: ""} ベビー・キッズ
-            %option{value: ""} インテリア・住まい・小物
-            %option{value: ""} 本・音楽・ゲーム
-            %option{value: ""} おもちゃ・ホビー・グッズ
-            %option{value: ""} コスメ・香水・美容
-            %option{value: ""} 家電・スマホ・カメラ
-            %option{value: ""} スポーツ・レジャー
-            %option{value: ""} ハンドメイド
-            %option{value: ""} チケット
-            %option{value: ""} 自動車・オートバイ
-            %option{value: ""} その他
-        .status_brand_group
-          .register_title
-            ブランド
-          %input.brand_form{autocomplete: "off", name: "brandName", placeholder: "例）シャネル", type: "text", value: ""}/
-        .item_status_group
-          .register_title
-            商品の状態
-          .status_form
-            %select{name: ""}
-              %option{value: ""}選択してください
-              %option{value: ""}新品、未使用
-              %option{value: ""}未使用に近い
-              %option{value: ""}目立った傷や汚れなし
-              %option{value: ""}やや傷や汚れあり
-              %option{value: ""}傷や汚れあり
-              %option{value: ""}全体的に状態が悪い
-
-      .send_register
-        .send_value_group
-          .register_title
-            配送料の負担
-          .send_value_form
-          %select{name: ""}
-            %option{value: ""}選択してください
-            %option{value: ""}送料込み(出品者負担)
-            %option{value: ""}着払い(購入者負担)
-        .send_area_group
-          .register_title
-            配送元の地域
-          .send_area_form
-          %select{name: ""}
-            %option{value: ""}選択してください
-            %option{value: "北海道"} 北海道
-            %option{value:"青森県"} 青森県
-            %option{value:  "岩手県"} 岩手県
-            %option{value:  "宮城県"} 宮城県
-            %option{value:  "秋田県"} 秋田県
-            %option{value:  "山形県"} 山形県
-            %option{value:  "福島県"} 福島県
-            %option{value:  "茨城県"} 茨城県
-            %option{value:  "栃木県"} 栃木県
-            %option{value:  "群馬県"} 群馬県
-            %option{value:  "埼玉県"} 埼玉県
-            %option{value:  "千葉県"} 千葉県
-            %option{value:  "東京都"} 東京都
-            %option{value:  "神奈川県"} 神奈川県
-            %option{value:  "新潟県"} 新潟県
-            %option{value:  "富山県"} 富山県
-            %option{value:  "石川県"} 石川県
-            %option{value:  "福井県"} 福井県
-            %option{value:  "山梨県"} 山梨県
-            %option{value:  "長野県"} 長野県
-            %option{value:  "岐阜県"} 岐阜県
-            %option{value:  "静岡県"} 静岡県
-            %option{value:  "愛知県"} 愛知県
-            %option{value:  "三重県"} 三重県
-            %option{value:  "滋賀県"} 滋賀県
-            %option{value:  "京都府"} 京都府
-            %option{value:  "大阪府"} 大阪府
-            %option{value:  "兵庫県"} 兵庫県
-            %option{value:  "奈良県"} 奈良県
-            %option{value:  "和歌山県"} 和歌山県
-            %option{value:  "鳥取県"} 鳥取県
-            %option{value:  "島根県"} 島根県
-            %option{value:  "岡山県"} 岡山県
-            %option{value:  "広島県"} 広島県
-            %option{value:  "山口県"} 山口県
-            %option{value:  "徳島県"} 徳島県
-            %option{value:  "香川県"} 香川県
-            %option{value:  "愛媛県"} 愛媛県
-            %option{value:  "高知県"} 高知県
-            %option{value:  "福岡県"} 福岡県
-            %option{value:  "佐賀県"} 佐賀県
-            %option{value:  "長崎県"} 長崎県
-            %option{value:  "熊本県"} 熊本県
-            %option{value:  "大分県"} 大分県
-            %option{value:  "宮崎県"} 宮崎県
-            %option{value:  "鹿児島県"} 鹿児島県
-            %option{value:  "沖縄県"} 沖縄県
-
-        .send_date_group
-          .register_title
-            配送までの日数
-          .send_date_form
-          %select{name: ""}
-            %option{value: ""}選択してください
-            %option{value: ""}1~2日で発送
-            %option{value: ""}2~3日で発送
-            %option{value: ""}4~7日で発送
-      .value_register
-        .register_title
-          販売価格
-        .value_form
-          %input.value_form_form{min: "0", step: "1", type: "number", value: "0"}/
-      .register_btn
-        .register_btn_group
-          .yes_btn
-            %button.register_btn_yes{tabindex: "0", type: "submit"} 出品する
-          .save_btn
-            %button.register_btn_save{tabindex: "0", type: "button"} 下書きに保存
-          .register_btn_delete
-            = link_to "#" do
-              もどる
-      .attentions
-        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-  .footer
-  = render "layouts/footer"
