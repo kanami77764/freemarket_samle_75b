@@ -6,7 +6,11 @@ class ItemsController < ApplicationController
   end
 
   def new 
+
+    @item =Item.new
+    @item.item_imgs.build
     @category = Category.where(ancestry: "").limit(13)
+
   end
 
   def get_category_children  
@@ -24,6 +28,16 @@ class ItemsController < ApplicationController
     @parent = @child.parent
   end
 
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
   def destroy
     @items = Item.find(params[:id])
     @items.destroy
@@ -32,9 +46,15 @@ class ItemsController < ApplicationController
   end
   
 
+
   private
   def item_params
-    params.require(:item).permit(:name, :price)
+    params.require(:item).permit(
+    :name, :introduction, :price,
+    :brand, :item_condition, 
+    :postage_payer, :prefecture_code,
+    :preparation_day, :postage_type, :category_id,
+    item_imgs_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
   def move_to_index
