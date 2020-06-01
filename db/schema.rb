@@ -46,12 +46,12 @@ ActiveRecord::Schema.define(version: 2020_06_01_033932) do
     t.text "size"
     t.text "preparation_day"
     t.text "postage_type"
-    t.bigint "category_id"
     t.text "trading_status"
     t.bigint "seller_id"
     t.bigint "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"

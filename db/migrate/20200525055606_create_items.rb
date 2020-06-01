@@ -19,6 +19,5 @@ class CreateItems < ActiveRecord::Migration[5.2]
     end
     add_foreign_key :items, :users, column: :seller_id
     add_foreign_key :items, :users, column: :buyer_id
-
   end
 end
