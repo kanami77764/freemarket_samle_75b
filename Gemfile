@@ -79,7 +79,12 @@ end
 gem 'haml-rails'
 gem 'devise'
 gem 'font-awesome-sass'
+
+gem 'ancestry'
+gem 'jquery-rails'
 gem 'rails-i18n'
-gem "jquery-rails"
+gem 'pry-rails'
+gem "gretel"
 gem 'mini_magick'
 gem 'carrierwave'
+

@@ -111,10 +111,13 @@
       .productLists
         - @items.each do |item|
           .productList
-            = link_to item_path(item.id) do
+            = link_to item_path(item) do
               %figure.productList--img
-                - item.item_imgs.each do |img|
-                  = image_tag (img.url), class: 'image__category'
+                = image_tag "#{item.item_imgs[0].url}", class: 'image__category'
+                  -if item.buyer_id.present?
+                  .productList--img__items-sold
+                    .productList--img__items-sold__inner 
+                      SOLD
               .productList--body
                 %h3.product--name
                   = item.name
@@ -181,3 +184,6 @@
                     %i.fa.fa-star.likeIcon
                 %p
                   (税込み)
+= render partial: 'layouts/appBanner'
+= render partial: 'layouts/footer'
+= render partial: 'layouts/display'

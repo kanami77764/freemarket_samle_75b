@@ -1,16 +1,15 @@
 %header
   .users-header
   = render partial: 'layouts/header'
-  
-%nav.bread-crumbs
-  %ul
-    %li 
-      = link_to "#" do
-        furuma
-      = icon('fas','angle-right')
-    %li 
-      = link_to users_path (current_user) do
-        マイページ
+  %nav.bread-crumbs
+    %ul
+      %li 
+        = link_to root_path do
+          furima
+        = icon('fas','angle-right')
+      %li 
+        - breadcrumb :mypage
+        = breadcrumbs separator: " &rsaquo; "
 
 
 
