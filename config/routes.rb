@@ -9,7 +9,12 @@ Rails.application.routes.draw do
     post 'sending_destinations', to: 'users/registrations#create_sending_destination'
   end
   root 'items#index'
-
+  
+  resources :items do
+    collection do
+      get 'search'
+    end 
+    
   resources :users, only: [:index, :new, :edit]
   resources :buyers, only: :index
 
@@ -27,3 +32,4 @@ Rails.application.routes.draw do
   end
 
 end
+

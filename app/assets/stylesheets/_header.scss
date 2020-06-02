@@ -34,22 +34,24 @@
             padding: 0 0 0 5px;
           }
         }
-      }
-      button{
-        margin-bottom: 5px;
-        width: 36px;
-        border: 0;
-        cursor: pointer;
-        padding: 8px;
-        background-color: #3CCACE;
-        .search-btn{
-          
-          img{
-            width: 100%;
-            vertical-align: bottom;
+
+        button{
+     
+          width: 36px;
+          border: 0;
+          cursor: pointer;
+          padding: 8px;
+          background-color: #3CCACE;
+          .search-btn{
+            
+            img{
+              width: 100%;
+              vertical-align: bottom;
+            }
           }
         }
       }
+      
     }
     .nav{
       font-size: 14px;
