@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end 
-    
+  end
   resources :users, only: [:index, :new, :edit]
   resources :buyers, only: :index
 
