@@ -4,8 +4,8 @@ class BuyersController < ApplicationController
 
   def index #購入確認確認(チームへのコメント)
     @items = Item.find(params[:item_id])
-    if @card.blank?
-      redirect_to new_card_path
+    if  @card.blank?
+        redirect_to new_card_path
     else
         Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
         customer = Payjp::Customer.retrieve(@card.customer_id)
