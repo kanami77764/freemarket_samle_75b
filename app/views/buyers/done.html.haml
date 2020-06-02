@@ -1,0 +1,17 @@
+
+%h2 購入完了！
+.buy-content-image
+  = image_tag "#{@items.item_imgs[0].url}", size: '300x250', class: 'buy-image__detail'
+.buy-content-name
+  = @items.name
+%p.buy-price
+  = "¥ #{@items.price.to_s(:delimited)}"
+  %span.shopping-free (税込)
+
+
+.index
+  = link_to root_path do
+    トップページへ
+.mypage
+  = link_to users_path(current_user) do
+    マイページへ

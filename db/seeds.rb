@@ -7,5 +7,4 @@ CSV.foreach('db/category.csv', headers: true) do |row|
     name: row['name'],
     ancestry: row['ancestry']
   )
-  
 end
