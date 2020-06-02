@@ -1,21 +1,31 @@
 .main-header
   = render partial: 'layouts/header'
-.category-title
-  .category-title-title__contents
-    FURIMA > カテゴリー1 > カテゴリー2 > カテゴリー3 > 商品詳細画面（仮）
+  %nav.bread-crumbs
+    %ul
+      %li 
+        = link_to root_path do
+          furima
+        = icon('fas','angle-right')
+      %li 
+        - breadcrumb :items_show
+        = breadcrumbs separator: " &rsaquo; "
 
 .main-contents
   .show-main
     .show-main__item-box
       .show-main__item-box__item-name
         = @items.name
+          -if @items.buyer_id.present? 
+          .main-contents__show-main__item-box__item-name__sold
+            .main-contents__show-main__item-box__item-name__sold__inner 
+              SOLD
       .show-main__item-box__item-image
         .show-main__item-box__item-image__main-img
           - @items.item_imgs.first(1).each do |img|
-            = image_tag (img.url), size:"400x350"
+            = image_tag "#{img.url}", size:"400x350"
         .show-main__item-box__item-image__sub-img
           - @items.item_imgs.first(3).each do |img|
-            = image_tag (img.url), size:"140x100"
+            = image_tag "#{img.url}", size:"140x100"
           
       .show-main__item-box__item-price
         %p
@@ -31,11 +41,17 @@
         %table
           %tr.one
             %th 出品者
-            %td 桐原
+            %td
+              = @items.name
           %tr.two
             %th カテゴリー
-            %td 
-              = @items.category
+            %td
+              = @parent.name
+              %br
+              = @child.name
+              %br
+              = @grandchild.name
+              
           %tr.tree
             %th ブランド
             %td 
@@ -50,7 +66,8 @@
               = @items.item_condition
           %tr.one
             %th 配送料の負担
-            %td 送料込み（出品者の負担）
+            %td
+              = @items.postage_payer
           %tr.one
             %th 発送元の地域
             %td 
@@ -98,3 +115,6 @@
   .related-items-link
     =link_to '#', class:"related-items" do
       ベビー・キッズをもっと見る
+
+= render partial: 'layouts/appBanner'
+= render partial: 'layouts/footer'

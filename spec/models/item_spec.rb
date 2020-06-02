@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe Item do
+
   describe '#search' do
    
     it "曖昧なキーワードを入れても検索できること" do
@@ -14,3 +15,5 @@ describe Item do
     end
   end
 end
+
+

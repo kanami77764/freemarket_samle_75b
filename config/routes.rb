@@ -9,12 +9,27 @@ Rails.application.routes.draw do
     post 'sending_destinations', to: 'users/registrations#create_sending_destination'
   end
   root 'items#index'
-  resources :users, only: [:index, :new]
-  resources :users, only: [:index, :new, :edit]
-  resources :buyers, only: :index
+  
   resources :items do
     collection do
       get 'search'
     end 
+    
+  resources :users, only: [:index, :new, :edit]
+  resources :buyers, only: :index
+
+  resources :items, only: [:new, :show, :create, :destroy] do 
+    collection do
+      get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+      get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+    end
   end
+
+  resources :cards, only: [:new, :show, :destroy] do
+    collection do
+      post 'pay', to: 'cards#pay'
+    end
+  end
+
 end
+
