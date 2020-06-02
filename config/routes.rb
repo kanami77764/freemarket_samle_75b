@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   resources :users, only: [:index, :new]
-  resources :items, only: [:new, :show, :destroy]
   resources :users, only: [:index, :new, :edit]
-  resources :items, only: [:show, :new]
   resources :buyers, only: :index
-
+  resources :items do
+    collection do
+      get 'search'
+    end 
+  end
 end
