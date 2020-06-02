@@ -1,0 +1,35 @@
+.card-show
+  .card-show__content
+    .card-show__content__title
+    %h2 登録クレジットカード情報
+    .card-list
+      .card-list__info
+        .card-list__info__brand
+
+      .card-list__info__number
+        %h3
+          = "**** **** **** " + @default_card_information.last4
+        .card-list__info__expiration
+          .card-list__info__expiration__title
+            有効期限
+          .card-list__info__expiration__date
+          %h3
+            = @exp_month + " / " + @exp_year
+
+    .destroy__function
+      .destroy__function__link
+        = link_to card_path, method: :delete, class: "destroy__function__link__btn" do
+          削除する
+
+  .card-index
+    = link_to new_card_path do
+      カード作成へ
+  .purchase-index
+    -# = link_to purchase_index_path do
+    -#   商品購入ページへ
+  .index
+    = link_to root_path do
+      トップページへ
+  .maypage
+    = link_to users_path (current_user) do
+      マイページへ

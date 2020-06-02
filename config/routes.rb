@@ -20,4 +20,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :cards, only: [:new, :show, :destroy] do
+    collection do
+      post 'pay', to: 'cards#pay'
+    end
+  end
+
 end
