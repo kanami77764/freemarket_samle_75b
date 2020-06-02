@@ -3,7 +3,7 @@
     =image_tag("logo.png", size: "220x70")
     
 .purchase-content
-  = form_tag(action: :pay, method: :post) do
+  = form_with url:item_buyers_path(@items), method: :post, class:"form" do |f|
     .purchase-content__title
       購入内容の確認
       .buy-content__item
@@ -37,14 +37,13 @@
           %br
       .buy-content__user-info
         .buy-content__user-info__inner
-        %h3 配送先
+        %h3 
         .user-info-update
           = link_to "変更する", "#", class:"update-btn"
-        .user-info-text
-          〒111-1111
+        .user-info-text 
+          = "住所 #{@items.prefecture_code}"
           %br
-          シンガポール
           %br
           真我歩流
       .buy-content__submit
-      = submit_tag("購入する", class: "buy-button")
+        = f.submit '購入する', class: 'buy-button'
