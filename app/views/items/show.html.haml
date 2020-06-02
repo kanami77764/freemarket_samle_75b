@@ -26,7 +26,6 @@
 
         .show-main__item-box__item-image__sub-img
           - @items.item_imgs.first(3).each do |img|
-
             = image_tag "#{img.url}", size:"140x100"
           
       .show-main__item-box__item-price
@@ -70,7 +69,8 @@
               = @items.item_condition
           %tr.one
             %th 配送料の負担
-            %td 送料込み（出品者の負担）
+            %td
+              = @items.postage_payer
           %tr.one
             %th 発送元の地域
             %td 
