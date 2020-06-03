@@ -1,29 +1,49 @@
 .header
   .header__logo
     =image_tag("logo.png", size: "220x70")
-
-.main
-  .main__buy-container
-    %h1.buy-head 購入内容の確認
-    .main__buy-container__buy-item-content
-      .main__buy-container__buy-item-content__buy-item-content-inner
-        .main__buy-container__buy-item-content__buy-item-content-inner__buy-item-box
-          .main__buy-container__buy-item-content__buy-item-content-inner__buy-item-box__buy-item-img
-            写真表示させる
-          .main__buy-container__buy-item-content__buy-item-content-inner__buy-item-box__buy-item-detail
-            %p.name 商品名表示させる
-            %p.money ¥金額表示させる
-    .main__buy-container__buy-pay-content
-      .main__buy-container__buy-pay-content__buy-pay-content-inner
-        = form_for '#' do |f|
-          %ul.buy-price
-            %li.pay-title 支払い金額
-            %li.pay-money ¥金額表示させる
-          .main__buy-container__buy-pay-content__buy-pay-content-inner__pay-method
-            %p 支払い方法
-            %p ※登録したカード情報表示させる
-          .main__buy-container__buy-pay-content__buy-pay-content-inner__send-destination
-            %p 配送先
-            %p ※登録した送付先住所表示させる
-          .main__buy-container__buy-pay-content__buy-pay-content-inner__buy-btn
-            = f.submit '購入する', class: 'buy-btn'
+    
+.purchase-content
+  = form_with url:item_buyers_path(@items), method: :post, class:"form" do |f|
+    .purchase-content__title
+      購入内容の確認
+      .buy-content__item
+        .buy-content-main
+          .buy-image
+            = image_tag "#{@items.item_imgs[0].url}", size: '300x250', class: 'buy-image__detail'
+          .buy-details
+            .buy-details__item-name
+              = @items.name
+              %p.buy-price
+                = number_to_currency(@items.price,format: "%u%n",unit:"¥",precision: 0)
+                %span.shopping-free (税込)送料込み
+      .buy-content__item
+        %form.buy-form
+          .price-table
+            .price-table__left
+              支払い金額
+            .price-table__right
+              = number_to_currency(@items.price,format: "%u%n",unit:"¥",precision: 0)
+      .buy-content__user-info
+        .buy-content__user-info__inner
+          %h3 支払い方法
+          =link_to "変更する", "#", class:"update-btn"
+        .buy-content__user-info__update
+        - if @default_card_information.blank?
+          %br /
+        -else
+          = "**** **** **** " + @default_card_information.last4
+          %br
+          = "有効期限 " + @exp_month + " / " + @exp_year
+          %br
+      .buy-content__user-info
+        .buy-content__user-info__inner
+        %h3 
+        .user-info-update
+          = link_to "変更する", "#", class:"update-btn"
+        .user-info-text 
+          = "住所 #{@items.prefecture_code}"
+          %br
+          %br
+          真我歩流
+      .buy-content__submit
+        = f.submit '購入する', class: 'buy-button'

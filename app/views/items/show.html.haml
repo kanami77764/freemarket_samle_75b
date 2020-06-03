@@ -23,6 +23,7 @@
         .show-main__item-box__item-image__main-img
           - @items.item_imgs.first(1).each do |img|
             = image_tag "#{img.url}", size:"400x350"
+
         .show-main__item-box__item-image__sub-img
           - @items.item_imgs.first(3).each do |img|
             = image_tag "#{img.url}", size:"140x100"
@@ -34,8 +35,10 @@
           (税込)送料込み
         .show-main__item-box__item-price__item-price-btn
           - unless user_signed_in? && current_user.id == @items.seller_id
-            = link_to buyers_path class: "purchase-btn" do
-              %button#purchase-btn  商品を購入する
+            = link_to item_buyers_path(@items) do
+              商品購入
+            -# %button#purchase-btn  商品を購入する(viewsをあとで編集する関係で残してます)
+
         .show-main__item-box__item-detail
           = @items.introduction
 
@@ -122,3 +125,6 @@
 
 = render partial: 'layouts/appBanner'
 = render partial: 'layouts/footer'
+
+
+
