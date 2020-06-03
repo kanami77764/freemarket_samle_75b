@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
   end
 
   def new 
-
     @item =Item.new
     @item.item_imgs.build
     @category = Category.where(ancestry: "").limit(13)
@@ -23,6 +22,7 @@ class ItemsController < ApplicationController
   
   def show
     @items = Item.find(params[:id])
+    @seller = @items.seller.name
     @grandchild = Category.find(@items.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to items_path unless user_signed_in?
+    redirect_to root_path unless user_signed_in?
   end
 end
 
