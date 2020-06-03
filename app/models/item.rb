@@ -34,9 +34,9 @@ class Item < ApplicationRecord
   enum preparation_day: {
     "1~2日で発送":1,"2~3日で発送":2,"4~7日で発送":3
   }
-
-  has_many :comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  # コメント機能、お気に入り機能が実装したらコメントアウト外す
+  # has_many :comments, dependent: :destroy
+  # has_many :favorites, dependent: :destroy
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User",optional:true
   belongs_to :category
