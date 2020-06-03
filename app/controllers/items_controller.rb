@@ -1,14 +1,13 @@
 class ItemsController < ApplicationController
 
   before_action :move_to_index, except: [:index, :show]
-  
+  before_action :set_item, only: [:show]
 
   def index
     @items = Item.all.order('id ASC').limit(3)
   end
 
   def new 
-
     @item =Item.new
     @item.item_imgs.build
     @category = Category.where(ancestry: "").limit(13)
@@ -24,7 +23,7 @@ class ItemsController < ApplicationController
     end
   
   def show
-    @items = Item.find(params[:id])
+    @seller = @items.seller.name
     @grandchild = Category.find(@items.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
@@ -62,7 +61,11 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to items_path unless user_signed_in?
+    redirect_to root_path unless user_signed_in?
+  end
+
+  def set_item
+    @items = Item.find(params[:id])
   end
 end
 
