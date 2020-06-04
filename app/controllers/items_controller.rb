@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
 
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :require_login]
   before_action :set_item, only: [:show]
 
   def index
-    @items = Item.all.order('id ASC').limit(3)
+    @items = Item.all.order('id ASC').limit(4)
   end
 
   def new 
@@ -48,6 +48,9 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.search(params[:keyword])
+  end
+
+  def require_login
   end
 
   private

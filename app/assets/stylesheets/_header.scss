@@ -60,6 +60,7 @@
       .left-items {
         display: flex;
         height: 2rem;
+        z-index: 1;
         .left-item1{
           width: 100px;
         }
