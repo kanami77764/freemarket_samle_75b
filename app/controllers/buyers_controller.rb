@@ -13,21 +13,22 @@ class BuyersController < ApplicationController
 
           @exp_month = @default_card_information.exp_month.to_s
           @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-      end
-      @card_brand = @default_card_information.brand
-      case @card_brand
-      when "Visa"
-        @card_src = "Visa.svg"
-      when "JCB"
-        @card_src = "JCB.svg.png"
-      when "MasterCard"
-        @card_src = "Master.svg.png"
-      when "American Express"
-        @card_src = "amex.svg"
-      when "Diners Club"
-        @card_src = "Diners.png"
-      when "Discover"
-        @card_src = "discover.png"
+
+          @card_brand = @default_card_information.brand
+          case @card_brand
+          when "Visa"
+            @card_src = "Visa.svg"
+          when "JCB"
+            @card_src = "JCB.svg.png"
+          when "MasterCard"
+            @card_src = "Master.svg.png"
+          when "American Express"
+            @card_src = "amex.svg"
+          when "Diners Club"
+            @card_src = "Diners.png"
+          when "Discover"
+            @card_src = "discover.png"
+          end
       end
   end
   
@@ -61,6 +62,5 @@ class BuyersController < ApplicationController
   def set_send
     @send_id = SendingDestination.where(user_id: current_user.id).first
   end
-
   
 end
