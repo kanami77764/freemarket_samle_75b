@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'require_login', to: 'items#require_login'
     end
+    
     resources :buyers, only: :index do
       collection do
         get 'index', to: 'buyers#index'
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   resources :cards, only: [:new, :show, :destroy] do
     collection do
       post 'pay', to: 'cards#pay'
+      get 'require_make_card', to: 'cards#require_make_card'
     end
   end
 

@@ -1,3 +1,7 @@
+.header
+  .header__logo
+    =image_tag("logo.png", size: "220x70")
+    
 .title
   .title__contents
     クレジットカード入力画面
@@ -15,15 +19,15 @@
           %li.icon-visa
             = image_tag "/assets/card/Visa.svg/", size: "40x30", alt:"visa"
           %li.icon-master
-            = image_tag "/assets/card//Master.svg.png", size: "40x30", alt:"master"
-          %li.icon-saison
-            = image_tag "/assets/card//saison.svg.png", size: "40x30", alt:"saison"
+            = image_tag "/assets/card/Master.svg.png", size: "40x30", alt:"master"
+          %li.icon-discover
+            = image_tag "/assets/card/discover.png", size: "40x30", alt:"discover"
           %li.icon-jcb
-            = image_tag "/assets/card//JCB.svg.png", size: "40x30", alt:"JVB"
+            = image_tag "/assets/card/JCB.svg.png", size: "40x30", alt:"JVB"
           %li.icon-amex
-          = image_tag "/assets/card//amex.svg", size: "40x30", alt:"AMEX"
+          = image_tag "/assets/card/amex.svg", size: "40x30", alt:"AMEX"
           %li.icon-diners
-          = image_tag "/assets/card//Diners.png", size: "40x30", alt:"diners"
+          = image_tag "/assets/card/Diners.png", size: "40x30", alt:"diners"
       .form-group
         %label 有効期限
         %span.form-group__require 必須

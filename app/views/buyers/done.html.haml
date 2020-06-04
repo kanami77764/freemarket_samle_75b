@@ -1,17 +1,44 @@
+.header
+  .header__logo
+    =image_tag("logo.png", size: "220x70")
 
-%h2 購入完了！
-.buy-content-image
-  = image_tag "#{@items.item_imgs[0].url}", size: '300x250', class: 'buy-image__detail'
-.buy-content-name
-  = @items.name
-%p.buy-price
-  = "¥ #{@items.price.to_s(:delimited)}"
-  %span.shopping-free (税込)
-
-
-.index
-  = link_to root_path do
-    トップページへ
-.mypage
-  = link_to users_path(current_user) do
-    マイページへ
+.buy-content
+  .buy-content__main
+    .buy-content__main__title
+      購入が完了しました
+    .buy-content__main__item
+      .buy-image
+        = image_tag "#{@items.item_imgs[0].url}", size: '200x150', class: 'buy-image__detail'
+      .buy-details
+        .buy-details__item-name
+          %span 商品名:
+          = @items.name
+          %p.buy-price
+            = number_to_currency(@items.price,format: "%u%n",unit:"¥",precision: 0)
+            %span.shopping-free (税込)送料込み
+    
+    .buy-content__main__done-info
+      .buy-content__main__done-info__adress
+        .buy-content__main__done-info__adress__inner
+          配送先
+          .adress
+            .adress__info
+              .adress__info__place
+                = "〒 #{@send_id.post_code}"
+                %br
+                = @send_id.prefecture_code
+                = @send_id.city
+                = @send_id.house_number
+                = @send_id.building_name
+            
+            .adress__name
+              氏名
+              = @send_id.destination_family_name
+              = "#{@send_id.destination_first_name} 様"
+      .back-button
+        .back-button__index 
+          = link_to root_path do
+            トップページへ
+        .back-button__mypage
+          = link_to users_path(current_user) do
+            マイページへ
