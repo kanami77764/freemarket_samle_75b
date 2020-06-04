@@ -15,15 +15,14 @@
     .show-main__item-box
       .show-main__item-box__item-name
         = @items.name
-          -if @items.buyer_id.present? 
-          .main-contents__show-main__item-box__item-name__sold
-            .main-contents__show-main__item-box__item-name__sold__inner 
-              SOLD
       .show-main__item-box__item-image
         .show-main__item-box__item-image__main-img
           - @items.item_imgs.first(1).each do |img|
-            = image_tag "#{img.url}", size:"400x350"
-
+            = image_tag "#{img.url}", size:"400x350", class: "top-img"
+            -if @items.buyer_id.present? 
+              .top-img__sold
+                .top-img__sold__inner 
+                  SOLD
         .show-main__item-box__item-image__sub-img
           - @items.item_imgs.first(3).each do |img|
             = image_tag "#{img.url}", size:"140x100"
@@ -34,14 +33,12 @@
         .show-main__item-box__item-price__item-price-detail
           (税込)送料込み
         .show-main__item-box__item-price__item-price-btn
-          -if user_signed_in?
+          - if user_signed_in?
             - unless current_user.id == @items.seller_id
-              
               = link_to item_buyers_path(@items) do
                 商品購入
-              -# 他のメンバー（篠原さん）が触っているので、このままにしてます
           - else
-            = link_to 
+            = link_to "ログインがまだな方はこちらからお願いします", require_login_items_path, class: 'post'
 
         .show-main__item-box__item-detail
           = @items.introduction

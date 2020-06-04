@@ -7,7 +7,7 @@
       = link_to item_path(item) do
         %figure.search-productList--img
           - item.item_imgs.each do |img|
-            = image_tag (img.url), class: 'search-image__category'
+            = image_tag "#{img.url}", class: 'search-image__category'
         .search-productList--body
           %h3.search-product--name
             = item.name

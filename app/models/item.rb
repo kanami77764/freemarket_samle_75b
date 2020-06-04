@@ -1,16 +1,13 @@
 class Item < ApplicationRecord
-  validates :name, null: false
-  validates :introduction, null: false
-  validates :price, null: false
-  validates :item_condition, null: false
-  validates :postage_payer, null: false
-  validates :prefecture_code, null: false
-  validates :size, null: false
-  validates :preparation_day, null: false
-  validates :postage_type, null: false
-  validates :category, null: false
-  validates :trading_status, null: false
-  validates :seller, null:false
+  validates :name, presence: true
+  validates :introduction, presence: true
+  validates :price, presence: true
+  validates :item_condition, presence: true
+  validates :postage_payer, presence: true
+  validates :prefecture_code, presence: true
+  validates :preparation_day, presence: true
+  validates :postage_type, presence: true
+  
   validates :name, length:{maximum:40}
   validates :introduction, length:{maximum:1000}
 
@@ -37,9 +34,9 @@ class Item < ApplicationRecord
   enum preparation_day: {
     "1~2日で発送":1,"2~3日で発送":2,"4~7日で発送":3
   }
-
-  has_many :comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  # コメント機能、お気に入り機能が実装したらコメントアウト外す
+  # has_many :comments, dependent: :destroy
+  # has_many :favorites, dependent: :destroy
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User",optional:true
   belongs_to :category

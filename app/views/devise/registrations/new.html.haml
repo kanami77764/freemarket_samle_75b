@@ -1,15 +1,15 @@
 .sing-content 
   %header.single-header
     = render "layouts/header"
-  %nav.bread-crumbs
-    %ul
-      %li 
-        = link_to root_path do
-          furima
-        = icon('fas','angle-right')
-      %li 
-        - breadcrumb :users_new
-        = breadcrumbs separator: " &rsaquo; "
+    %nav.bread-crumbs
+      %ul
+        %li 
+          = link_to root_path do
+            furima
+          = icon('fas','angle-right')
+        %li 
+          - breadcrumb :users_new
+          = breadcrumbs separator: " &rsaquo; "
   %main.sing-main
     %section.sing-main__container
       %h2.sing-main__container__title
