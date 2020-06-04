@@ -4,15 +4,21 @@ class BuyersController < ApplicationController
 
   def index #購入確認確認(チームへのコメント)
     @items = Item.find(params[:item_id])
-    if  @card.blank?
-        redirect_to new_card_path
-    else
-        Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
-        customer = Payjp::Customer.retrieve(@card.customer_id)
-        @default_card_information = customer.cards.retrieve(@card.card_id)
 
-        @exp_month = @default_card_information.exp_month.to_s
-        @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+    # ログインしてなければ新規登録、ログイン画面に飛ぶ
+    unless user_signed_in?
+      redirect_to require_login_items_path
+
+      if  @card.blank?
+          redirect_to new_card_path
+      else
+          Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+          customer = Payjp::Customer.retrieve(@card.customer_id)
+          @default_card_information = customer.cards.retrieve(@card.card_id)
+
+          @exp_month = @default_card_information.exp_month.to_s
+          @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      end
     end
   end
 

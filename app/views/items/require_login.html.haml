@@ -1,0 +1,15 @@
+.serch-pcheader
+  = render "layouts/header"
+
+.require-login
+  .require-login__contents-box
+    .require-login__contents-box__signedup-block
+      アカウントをお持ちで無い方はこちらから
+    = link_to new_user_registration_path do
+      新規会員登録
+    .require-login__contents-box__login-block
+      %p 購入に進むにはログインが必要です。
+      %p アカウントをお持ちでない場合は上記の
+      %p「新規会員登録」より会員登録をしてください。
+    = link_to new_user_session_path do
+      ログイン
