@@ -34,10 +34,14 @@
         .show-main__item-box__item-price__item-price-detail
           (税込)送料込み
         .show-main__item-box__item-price__item-price-btn
-          - unless user_signed_in? && current_user.id == @items.seller_id
-            = link_to item_buyers_path(@items) do
-              商品購入
-            -# %button#purchase-btn  商品を購入する(viewsをあとで編集する関係で残してます)
+          -if user_signed_in?
+            - unless current_user.id == @items.seller_id
+              
+              = link_to item_buyers_path(@items) do
+                商品購入
+              -# 他のメンバー（篠原さん）が触っているので、このままにしてます
+          - else
+            = link_to 
 
         .show-main__item-box__item-detail
           = @items.introduction

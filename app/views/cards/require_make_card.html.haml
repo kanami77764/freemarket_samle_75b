@@ -1,0 +1,27 @@
+%header
+  .users-header
+  = render partial: 'layouts/header'
+  %nav.bread-crumbs
+    %ul
+      %li 
+        = link_to root_path do
+          furima
+        = icon('fas','angle-right')
+      %li 
+        - breadcrumb :mypage
+        = breadcrumbs separator: " &rsaquo; "
+
+
+
+.users-main
+  .right-contents
+    %section.user-todo
+      .tab-credit
+        .tab-credit__title
+          クレジットカードの登録をお願いします
+        .tab-credit__frame
+          = link_to new_card_path, class: 'card-link' do
+            %pクレジットカードの登録ページへ
+            
+
+  = render partial:'users/left-contents_users'

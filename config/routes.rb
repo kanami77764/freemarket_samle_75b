@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     collection do
       get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
       get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+
     end
     resources :buyers, only: :index do
       collection do
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
   resources :cards, only: [:new, :show, :destroy] do
     collection do
       post 'pay', to: 'cards#pay'
+      get 'require_make_card', to: 'cards#require_make_card'
     end
   end
 

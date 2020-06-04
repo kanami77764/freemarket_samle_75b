@@ -1,0 +1,50 @@
+.left-contents
+  %nav.my-page-nav
+    %p マイページ
+    %ul.my-page-lists
+      %li
+        .lists-info
+          = link_to new_item_path do
+            出品する
+        = icon('fas','angle-right')
+      %li
+        .lists-info
+          = link_to "#" do
+            出品した商品
+        = icon('fas','angle-right')
+      %li
+        .lists-info
+          = link_to "#" do
+            購入した商品
+        = icon('fas','angle-right')
+      %li
+        .lists-info
+          = link_to "#" do
+            お問い合わせ
+        = icon('fas','angle-right')
+      %li
+        .lists-info
+          =link_to "#" do
+            お知らせ
+        = icon('fas','angle-right')
+    %p 設定
+    %ul.setting-lists
+
+      %li.list-setting
+        .list-setting__info
+          - card = Card.where(user_id: current_user.id)
+          - if card.blank?
+            = link_to new_card_path do
+              .card-branch
+                %span クレジットカード登録
+                = icon('fas','angle-right')
+          - else 
+            = link_to card_path(current_user) do
+              .card-branch
+                %span クレジットカード詳細・削除
+                = icon('fas','angle-right')
+      %li.list-setting
+        .list-setting__info
+          =link_to edit_user_path(current_user) do
+            ログアウト
+        = icon('fas','angle-right')
