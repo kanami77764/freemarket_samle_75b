@@ -1,20 +1,23 @@
-##DB設計
-#usersテーブル
+# README
+
+# DB設計
+
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
 |password|string|null: false|
 |email|string|null:false, unique:true|
-Association
-has_many :comments, dependent: :destroy
-has_many :favorites, dependent: :destroy
-has_one :profile, dependent: :destroy
-has_one :sns_authentication, dependent: :destroy
-has_one :sending_destination, dependent: :destroy
-has_one :credit_card, dependent: :destroy
-has_many :items, dependent: :destroy
+### Association
+- has_many :items, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :favorites, dependent: :destroy
+- has_one :profile, dependent: :destroy
+- has_one :sns_authentication, dependent: :destroy
+- has_one :sending_destination, dependent: :destroy
+- has_one :credit_card, dependent: :destroy
 
-#profiles テーブル
+## profiles テーブル
 |Column|Type|Options|
 |------|----|-------|
 |first_name|string|null:false|
@@ -25,19 +28,19 @@ has_many :items, dependent: :destroy
 |introduction|text||
 |avatar|string||
 |user|references|null:false,foreign_key:true|
-Association
-belongs_to :user
+### Association
+- belongs_to :user
 
-#sns_authenticationsテーブル
+## sns_authenticationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |provider|string|null: false|
 |uid|string|null:false,unique:true|
 |user|references|null: false,foreign_key:true|
-Association
-beolongs_to :user
+### Association
+- beolongs_to :user
 
-#sending_destinationsテーブル
+## sending_destinationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |destination_first_name|string|null:false|
@@ -51,9 +54,10 @@ beolongs_to :user
 |building_name|string||
 |phone_number|integer|unique:true|
 |user|references|null: false,foreign_key:true|
-Association
-belongs_to: user
-#credit_cardsテーブル
+### Association
+- belongs_to: user
+
+## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_number|integer|null:false,unique:true|
@@ -61,10 +65,10 @@ belongs_to: user
 |expiration_month|integer|null:false|
 |security_code|integer|null:false|
 |user|references|null:false,foreign_key:true|
-Association
-belongs_to: user
+### Association
+- belongs_to: user
 
-#itemsテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false,validates :introduction,length:{maximum:40}|
@@ -81,51 +85,44 @@ belongs_to: user
 |trading_status|enum|null:false|
 |seller|references|null:false,foreign_key:true|
 |buyer|references|foreign_key:true|
-Association
-has_many :comments, dependent: :destroy
-has_many :favorites, dependent: :destroy
-has_many :item_imgs, dependent: :destroy
-belongs_to :category
-belongs_to :user
+### Association
+- has_many :comments, dependent: :destroy
+- has_many :favorites, dependent: :destroy
+- has_many :item_imgs, dependent: :destroy
+- belongs_to :category
+- belongs_to :user
 
-#item_imgsテーブル
+## item_imgsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |url|string|null:false|
 |item|references|null:false,foreign_key:true|
-Association
-belongs_to :item
+### Association
+- belongs_to :item
 
-#favoritesテーブル
+## favoritesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null:false,foreign_key:true|
 |item|references|null:false,foreign_key:true|
-Association
-belongs_to :user
-belongs_to :item
+### Association
+- belongs_to :user
+- belongs_to :item
 
-#commentsテーブル
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null:false|
 |user|references|null:false,foreign_key:true|
 |item|references|null:false,foreign_key:true|
-Association
-belongs_to :user
-belongs_to :item
+### Association
+- belongs_to :user
+- belongs_to :item
 
-#categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
 |ancestry|string|null:false|
-Association
-has_many :items
-
-gem 'ancestry'インストール
-
-
-
-
-
+### Association
+- has_many :items
