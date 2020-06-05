@@ -33,12 +33,16 @@
         .show-main__item-box__item-price__item-price-detail
           (税込)送料込み
         .show-main__item-box__item-price__item-price-btn
-          - if user_signed_in?
+          - if @items.buyer_id.present?
+            = link_to root_path do
+              売り切れました
+          - elsif user_signed_in?
             - unless current_user.id == @items.seller_id
               = link_to item_buyers_path(@items) do
                 商品購入
           - else
-            = link_to "ログインがまだな方はこちらからお願いします", require_login_items_path, class: 'post'
+            = link_to require_login_items_path do
+              ログインがまだな方はこちらからお願いします
 
         .show-main__item-box__item-detail
           = @items.introduction
