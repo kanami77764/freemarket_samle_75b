@@ -45,6 +45,10 @@ $color-item3: turquoise;
          
             .sending-group {
               font-size: 16px;
+              .field_with_errors {
+                display: contents;
+                
+              }
               &__input {
                 margin-bottom: 25px;
                 border-radius: 5px;

@@ -44,6 +44,10 @@ $color-item3: turquoise;
             .profile-group {
               font-size: 16px;
               margin-top: 20px;
+              .field_with_errors {
+                display: contents;
+                
+              }
               &__input--left {
                 margin-bottom: 40px;
                 border-radius: 5px;
