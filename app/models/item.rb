@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   validates :postage_payer, presence: true
   validates :prefecture_code, presence: true
   validates :preparation_day, presence: true
-  validates :postage_type, presence: true
+  # validates :postage_type, presence: true
   
   validates :name, length:{maximum:40}
   validates :introduction, length:{maximum:1000}
