@@ -17,17 +17,17 @@
         = text_field_tag "number", "", class: "form-group__input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
         %ul.card-list
           %li.icon-visa
-            = image_tag "/assets/card/Visa.svg/", size: "40x30", alt:"visa"
+            = image_tag asset_path("card/Visa.svg"), size: "40x30", alt:"visa"
           %li.icon-master
-            = image_tag "/assets/card/Master.svg.png", size: "40x30", alt:"master"
+            = image_tag asset_path("card/Master.svg.png"), size: "40x30", alt:"master"
           %li.icon-discover
-            = image_tag "/assets/card/discover.png", size: "40x30", alt:"discover"
+            = image_tag asset_path("card/discover.png"), size: "40x30", alt:"discover"
           %li.icon-jcb
-            = image_tag "/assets/card/JCB.svg.png", size: "40x30", alt:"JVB"
+            = image_tag asset_path("card/JCB.svg.png"), size: "40x30", alt:"JVB"
           %li.icon-amex
-          = image_tag "/assets/card/amex.svg", size: "40x30", alt:"AMEX"
+          = image_tag asset_path("card/amex.svg"), size: "40x30", alt:"AMEX"
           %li.icon-diners
-          = image_tag "/assets/card/Diners.png", size: "40x30", alt:"diners"
+          = image_tag asset_path("card/Diners.png"), size: "40x30", alt:"diners"
       .form-group
         %label 有効期限
         %span.form-group__require 必須

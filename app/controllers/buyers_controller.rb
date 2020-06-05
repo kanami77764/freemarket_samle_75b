@@ -6,6 +6,7 @@ class BuyersController < ApplicationController
     @items = Item.find(params[:item_id])
     unless user_signed_in?
       redirect_to require_login_items_path
+    end
       if  @card.blank?
           redirect_to require_make_card_cards_path
       else
@@ -32,7 +33,6 @@ class BuyersController < ApplicationController
             @card_src = "discover.png"
           end
       end
-    end
   end
   
   def pay #商品購入（チームへのコメントアウト。viewsなし）
@@ -67,3 +67,5 @@ class BuyersController < ApplicationController
   end
   
 end
+
+# = image_tag asset_path("card/#{@card_src}"),
