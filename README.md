@@ -5,7 +5,7 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
+|name|string|null: false|
 |password|string|null: false|
 |email|string|null:false, unique:true|
 ### Association
@@ -26,19 +26,18 @@
 |family_name_kana|string|null:false|
 |birth_day|date|null:false|
 |introduction|text||
-|avatar|string||
 |user|references|null:false,foreign_key:true|
 ### Association
 - belongs_to :user
 
-## sns_authenticationsテーブル
+<!-- ## sns_authenticationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |provider|string|null: false|
 |uid|string|null:false,unique:true|
 |user|references|null: false,foreign_key:true|
 ### Association
-- beolongs_to :user
+- beolongs_to :user -->
 
 ## sending_destinationsテーブル
 |Column|Type|Options|
@@ -60,11 +59,9 @@
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null:false,unique:true|
-|expiration_year|integer|null:false|
-|expiration_month|integer|null:false|
-|security_code|integer|null:false|
-|user|references|null:false,foreign_key:true|
+|user_id|integer|null:false|
+|customer_id|string|null:false|
+|card_id|string|null:false|
 ### Association
 - belongs_to: user
 
@@ -75,14 +72,11 @@
 |introduction|text|null:false,validates :introduction,length:{maximum:1000}|
 |price|integer|null:false|
 |brand|text|null:false|
-|item_condition|text|null:false,foreign_key:true|
-|postage_payer|text|null:false,foreign_key: true|
+|item_condition|integer|null:false,foreign_key:true|
+|postage_payer|integer|null:false,foreign_key: true|
 |prefecture_code|integer|null:false|
-|size|text|null:false,foreign_key:ture|
-|preparation_day|text|null:false,foreign_key: true|
-|postage_type|text|null: false,foreign_key: true|
+|preparation_day|integer|null:false,foreign_key: true|
 |category|references|null:false,foreign_key:true|
-|trading_status|enum|null:false|
 |seller|references|null:false,foreign_key:true|
 |buyer|references|foreign_key:true|
 ### Association
@@ -100,16 +94,16 @@
 ### Association
 - belongs_to :item
 
-## favoritesテーブル
+<!-- ## favoritesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null:false,foreign_key:true|
 |item|references|null:false,foreign_key:true|
 ### Association
 - belongs_to :user
-- belongs_to :item
+- belongs_to :item -->
 
-## commentsテーブル
+<!--## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null:false|
@@ -117,7 +111,7 @@
 |item|references|null:false,foreign_key:true|
 ### Association
 - belongs_to :user
-- belongs_to :item
+- belongs_to :item -->
 
 ## categoriesテーブル
 |Column|Type|Options|
