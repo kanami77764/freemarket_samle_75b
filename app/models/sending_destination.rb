@@ -12,13 +12,35 @@ class SendingDestination < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
 
-  validates :destination_first_name, presence: true
-  validates :destination_family_name, presence: true
-  validates :destination_first_name_kana, presence: true
-  validates :destination_family_name_kana, presence: true
-  validates :post_code, presence: true
+  validates :destination_first_name, format: {
+    with: /\A[^ -~｡-ﾟ]+\z/,
+    message: "全角で入力して下さい"
+  }, presence: true
+  
+  validates :destination_family_name, format: {
+    with: /\A[^ -~｡-ﾟ]+\z/,
+    message: "全角で入力して下さい"
+  }, presence: true
+  
+  validates :destination_first_name_kana, format: {
+    with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/,
+    message: "全角カタカナのみで入力して下さい"
+  },presence: true
+  
+  validates :destination_family_name_kana, format: {
+    with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/,
+    message: "全角カタカナのみで入力して下さい"
+  }, presence: true
+  
+  validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/},presence: true
+  
   validates :prefecture_code, presence: true 
-  validates :city, presence: true
+  
+  validates :city,format: {
+    with: /\A[^ -~｡-ﾟ]+\z/,
+    message: "全角で入力して下さい"
+  }, presence: true
+  
   validates :house_number, presence: true
 
 end
