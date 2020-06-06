@@ -1,16 +1,51 @@
 # README
 
-## フリーマーケットサイト
+<h1 align="center">フリーマーケットサイト</h1>
+
 - メルカリクローンのフリーマーケットサイトです。
-- TECH::EXPERT 75期短期集中コースBチームで作成
+- TECH::EXPERT 75期短期集中コースBチームで作成。
 - 作成期間 2020/5/19 ~ 2020/6/12
+- ![top_page](https://gyazo.com/8cc8c91e61ca8af55a7432061a27f146/raw)
+
+## :paperclip: 主な使用言語
+<a><img src="https://user-images.githubusercontent.com/39142850/71774533-1ddf1780-2fb4-11ea-8560-753bed352838.png" width="70px;" /></a> <!-- rubyのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774548-731b2900-2fb4-11ea-99ba-565546c5acb4.png" height="60px;" /></a> <!-- RubyOnRailsのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774618-b32edb80-2fb5-11ea-9050-d5929a49e9a5.png" height="60px;" /></a> <!-- Hamlのロゴ -->
+<a><<img src="https://user-images.githubusercontent.com/39142850/71774644-115bbe80-2fb6-11ea-822c-568eabde5228.png" height="60px" /></a> <!-- Scssのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774768-d064a980-2fb7-11ea-88ad-4562c59470ae.png" height="65px;" /></a> <!-- jQueryのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774786-37825e00-2fb8-11ea-8b90-bd652a58f1ad.png" height="60px;" /></a> <!-- AWSのロゴ -->
+
+## 機能紹介
+- 新規会員登録・ログインをすると商品の購入、出品ができます。
+- 新規会員登録、ログインがお済みでない方も商品の一覧、詳細を閲覧可能です。
+- 決済方法はご自身のクレジットカードを登録して購入できます。
+
 
 ## サイトURL紹介
 - ユーザー名:admin
 - パスワード:password
 - IPアドレス:54.178.226.20
 
-# DB設計
+## :globe_with_meridians: インストール方法
+1.このリポジトリを複製<br>
+`$ git clone https://github.com/kanami77764/freemarket_samle_75b.git`
+
+2.インストールしたリポジトリに移動<br>
+`$ cd freemarket_samle_75b.git`
+
+3.gemをアプリケーションに適用<br>
+`$ bundle install`<br>
+
+4.DBの作成&反映<br>
+`$ rails db:create`<br>
+`$ rails db:migrate`<br>
+
+5.アプリケーションの起動<br>
+`$ rails s`<br>
+:point_right:`http://localhost:3000`
+
+
+# :page_facing_up: DB設計
 
 ## ER図
 ![er](freemarket_samle_75b.png)
