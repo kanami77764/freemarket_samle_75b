@@ -1,6 +1,19 @@
 # README
 
+## フリーマーケットサイト
+- メルカリクローンのフリーマーケットサイトです。
+- TECH::EXPERT 75期短期集中コースBチームで作成
+- 作成期間 2020/5/19 ~ 2020/6/12
+
+## サイトURL紹介
+- ユーザー名:admin
+- パスワード:password
+- IPアドレス:54.178.226.20
+
 # DB設計
+
+## ER図
+![er](freemarket_samle_75b.png)
 
 ## usersテーブル
 |Column|Type|Options|
