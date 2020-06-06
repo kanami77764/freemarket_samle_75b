@@ -12,6 +12,18 @@
       padding-top: 10px;
       padding-bottom: 10px;
 
+      .form-group__require {
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        font-size: 12px;
+        background-color: red;
+        color: white;
+      }
+      label{
+        font-size: 20px;
+        font-weight: bolder;
+      }
       select,input,textarea {
         width: 100%;
         border: 1px solid #ccc;
@@ -25,37 +37,104 @@
       .item_info_form {
         height: 150px;
       }
-      .value_form{
-        width: 30%;
-      }
+
     }
     .image_register{
+      .image-attend{
+        margin: 10px;
+        font-size: 12px;
+      }
       #image-box-1{
         display: flex;
         flex-wrap: wrap;
-      }
-      .image-form{
-        width: 100%;
-        height: 150px;
-        background-color: #ccc;
-        border: dotted 4px silver;
-        position: relative;
-        input{
-          display: none;
+        .item-image{
+          padding-bottom: 6px;
+          padding-right: 6px;
+          .item-image__area{
+            border: solid 3px#3CCACE;
+            border-radius: 10px;
+            padding: 4px;
+            img{
+              border-radius: 5px;
+            }
+            .item-image__operetion--delete{
+              text-align: center;
+              border-radius: 16px;
+              background-color: gray;
+              color: #ffffff;
+              width: 65%;
+              margin: auto;
+            }
+          }
         }
-        img{
-          top: 50%;
-          left: 50%;
-          position: absolute;
-          height: 24px;
-          width: 24px;
+        #image-box__container{
+          height: 119px;
+          background-color: #3CCACE;
+          border: dotted 4px silver;
+          border-radius: 20px;
+          position: relative;
+          input{
+            display: none;
+          }
+          img{
+            margin: auto;
+            position: absolute;
+            width: 60px;
+            padding-top: 30px;
+            left: 42%;
+          }
+          .image-form{
+            display:block;
+            float:left;
+            height: 100%;
+            width: 100%;
+          }
+        }
+        .item-num-0{
+          width: 100%;
+        }
+        .item-num-1{
+          width: 470px;
+        }
+        .item-num-2{
+          width: 350px;
+        }
+        .item-num-3{
+          width: 230px;
+        }
+        .item-num-4{
+          width: 110px;
+        }
+        .item-num-5{
+          width: 100%;
+        }
+        .item-num-6{
+          width: 470px;
+        }
+        .item-num-7{
+          width: 350px;
+        }
+        .item-num-8{
+          width: 230px;
+        }
+        .item-num-9{
+          width: 110px;
         }
       }
-    }
-    .value_register{
-      display: flex;
-      justify-content: space-between;
+      
     }
 
+    .register_btns{
+      padding: 30px;
+      .exhibition-btn{
+        background-color: #3CCACE;
+        color: #ffffff;
+        border-radius: 16px;
+      }
+    }
+    .attentions{
+      padding-top: 10px;
+      font-size: 12px;
+    }
   }
 }

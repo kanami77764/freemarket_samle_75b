@@ -1,19 +1,12 @@
 class Item < ApplicationRecord
-  validates :name, null: false
-  validates :introduction, null: false
-  validates :price, null: false
-  validates :item_condition, null: false
-  validates :postage_payer, null: false
-  validates :prefecture_code, null: false
-  validates :size, null: false
-  validates :preparation_day, null: false
-  validates :postage_type, null: false
-  validates :category, null: false
-  validates :trading_status, null: false
-  validates :seller, null:false
-  validates :name, length:{maximum:40}
-  validates :introduction, length:{maximum:1000}
-
+  validates :name, presence:true, length:{maximum:40}
+  validates :introduction, presence:true, length:{maximum:1000}
+  validates :price, presence:true, numericality: {greater_than_or_equal_to: 300}
+  validates :category, presence:true
+  validates :item_condition, presence:true
+  validates :postage_payer, presence:true
+  validates :prefecture_code, presence:true
+  validates :preparation_day, presence:true
   enum item_condition: {
     新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,
     やや傷や汚れあり:4,傷や汚れあり:5,全体的に状態が悪い:6
@@ -50,4 +43,6 @@ class Item < ApplicationRecord
   
   has_many :item_imgs, inverse_of: :item,dependent: :destroy
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
+  validates_associated :item_imgs
+  validates :item_imgs, presence:true
 end

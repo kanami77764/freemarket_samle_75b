@@ -1,65 +1,79 @@
 require 'rails_helper'
-
 describe Item do
   describe '#create' do
-    it "nameがない場合は登録できないこと" do
+    it "送信テスト" do
+      user = create(:user)
+      category = create(:category)
+      item_img = create(:item_img)
+      item = FactoryBot.build(:item, category_id: category[:id],seller_id: user[:id])
+      expect(item).to be_valid
+    end
+
+    it "名前がない場合は登録できないこと" do
       item = build(:item, name: nil)
       item.valid?
-      expect(item.errors[:name]).to include("can't be blank")
+      expect(item.errors[:name]).to include("を入力してください")
     end
 
-    it "introductionがない場合は登録できないこと" do
+    it "introduction(説明文)がない場合は登録できないこと" do
       item = build(:item, introduction: nil)
       item.valid?
-      expect(item.errors[:introduction]).to include("can't be blank")
+      expect(item.errors[:introduction]).to include("を入力してください")
     end
 
-    it "priceがない場合は登録できないこと" do
-      item = build(:item, price:nil)
+    it "category_id(カテゴリーの選択)がない場合は登録できないこと" do
+      item = build(:item, category: nil)
       item.valid?
-      expect(item.errors[:price]).to include("can't be blank")
+      expect(item.errors[:category]).to include("を入力してください")
     end
 
-    it "category_idがない場合は登録できないこと" do
-      item = build(:item, category_id: nil)
-      item.valid?
-      expect(item.errors[:category_id]).to include("can't be blank")
-    end
-
-    it "postage_payerがない場合は登録できないこと" do
-      item = build(:item, postage_payer: nil)
-      item.valid?
-      expect(item.errors[:postage_payer]).to include("can't be blank")
-    end
-
-    it "item_conditionがない場合は登録できないこと" do
+    it "item_condition(商品の状態)の選択がない場合は登録できないこと" do
       item = build(:item, item_condition: nil)
       item.valid?
-      expect(item.errors[:item_condition]).to include("can't be blank")
+      expect(item.errors[:item_condition]).to include("を入力してください")
     end
 
-    it "prefecture_codeがない場合は登録できないこと" do
-      item = build(:item, prefecture_code:nil)
+    it "postage_payer(発送料の負担)の選択がない場合は登録できないこと" do
+      item = build(:item, postage_payer: nil)
       item.valid?
-      expect(item.errors[:prefecture_code]).to include("can't be blank")
+      expect(item.errors[:postage_payer]).to include("を入力してください")
+    end
+
+    it "prefecture_code(発送元の地域)の選択がない場合は登録できないこと" do
+      item = build(:item, prefecture_code: nil)
+      item.valid?
+      expect(item.errors[:prefecture_code]).to include("を入力してください")
+    end
+
+    it "preparation_day(発送までの日数)の選択がない場合は登録できないこと" do
+      item = build(:item, preparation_day: nil)
+      item.valid?
+      expect(item.errors[:preparation_day]).to include("を入力してください")
+    end
+
+    it "price(価格)の入力がない場合は登録できないこと" do
+      item = build(:item, price: nil)
+      item.valid?
+      expect(item.errors[:price]).to include("を入力してください")
     end
     
-    it "preparation_dayがない場合は登録できないこと" do
-      item = build(:item, preparation_day:nil)
+    it " introductionが1000文字以上であれば登録できないこと " do
+      item = build(:item, introduction: "a"*1001 )
       item.valid?
-      expect(item.errors[:preparation_day]).to include("can't be blank")
+      expect(item.errors[:introduction]).to include("は1000文字以内で入力してください")
     end
 
-    it " nameが40文字以下であれば登録できること " do
-      item = build(:item)
+    it " nameが40文字以上であれば登録できないこと " do
+      item = build(:item, name: "a"*41 )
       item.valid?
-      expect(item.errors[:name]).to include("is too short (minimum is 40 characters)")
+      expect(item.errors[:name]).to include("は40文字以内で入力してください")
     end
 
-    it "introductionが1000文字以下であれば登録できないこと " do
-      item = build(:item)
+    it "price(値段)が300以下であれば登録できないこと " do
+      item = build(:item, price: 299 )
       item.valid?
-      expect(item.errors[:introduction]).to include("is too short (minimum is 1000 characters)")
+      expect(item.errors[:price]).to include("は300以上の値にしてください")
     end
+
   end
 end

@@ -24,4 +24,13 @@ ja:
         prefecture_code: 都道府県
         city: 市町村
         house_number: 番地
-        
+      item:
+        item_img: 画像
+        name: 商品名
+        introduction: 説明文
+        category: カテゴリー
+        item_condition:  商品の状態
+        postage_payer: 配送料の負担
+        prefecture_code: 配送元の地域 
+        preparation_day: 発送までの日数
+        price: 販売価格
