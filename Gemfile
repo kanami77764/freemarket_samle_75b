@@ -89,4 +89,4 @@ gem 'payjp'
 gem "gretel"
 gem 'mini_magick'
 gem 'carrierwave'
-
+gem 'fog-aws'

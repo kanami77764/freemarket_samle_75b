@@ -1,0 +1,36 @@
+.require-login {
+  background-color: #f8f8f8;
+  height: 100vh;
+  padding-top: 80px;
+  
+  &__contents-box {
+    background-color: white;
+    margin: 0 auto;
+    width: 27%;
+    text-align: center;
+
+    &__signedup-block {
+      padding: 60px 0 25px 0;
+      font-size: 17px;
+      color: black;
+    }
+
+    &__login-block {
+      padding: 65px 0 20px 0;
+      font-size: 16px;
+      color: red;
+    }
+
+    a {
+      display: inline-block;
+      text-align: center;
+      width: 80%;
+      height: 50px;
+      line-height: 50px;
+      color: white;
+      background-color: $sub-color;
+      text-decoration: none;
+      margin-bottom: 30px;
+    }
+  }
+}

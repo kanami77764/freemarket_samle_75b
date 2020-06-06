@@ -1,35 +1,42 @@
-.card-show
-  .card-show__content
-    .card-show__content__title
-    %h2 登録クレジットカード情報
-    .card-list
-      .card-list__info
-        .card-list__info__brand
+.contents
+  %header.main-header 
+    = render "layouts/header"
+    %nav.bread-crumbs
+      %ul
+        %li 
+          = link_to root_path do
+            furima
+          = icon('fas','angle-right')
+        %li 
+          - breadcrumb :card_show
+          = breadcrumbs separator: " &rsaquo; "
 
-      .card-list__info__number
-        %h3
-          = "**** **** **** " + @default_card_information.last4
-        .card-list__info__expiration
-          .card-list__info__expiration__title
-            有効期限
-          .card-list__info__expiration__date
-          %h3
-            = @exp_month + " / " + @exp_year
+.users-main
+  .right-contents
 
-    .destroy__function
-      .destroy__function__link
-        = link_to card_path, method: :delete, class: "destroy__function__link__btn" do
-          削除する
+    .card-show
+      .card-show__content
+        .card-show__content__title
+          %span クレジットカード情報
+        .card-list
+          .card-list__info
+            .card-list__info__title
+              登録カード一覧
+            .card-list__info__inner
+              .card-list__info__inner__brand
+                %figure
+                = image_tag asset_path("card/#{@card_src}"), width: '60', height: '50', alt: @card_brand, id: "card_image"
+              .card-list__info__inner__number
+                = "**** **** **** " + @default_card_information.last4
+              .card-list__info__inner__expiration
+                .card-list__info__inner__expiration__title
+                  有効期限
+                .card-list__info__inner__expiration__date
+                  = @exp_month + " / " + @exp_year
+          .destroy-function
+            .destroy-function__link
+              = link_to card_path, method: :delete, class: "destroy-function__link__btn" do
+                カードを削除する
 
-  .card-index
-    = link_to new_card_path do
-      カード作成へ
-  .purchase-index
-    -# = link_to purchase_index_path do
-    -#   商品購入ページへ
-  .index
-    = link_to root_path do
-      トップページへ
-  .maypage
-    = link_to users_path (current_user) do
-      マイページへ
+
+  = render partial: 'users/left-contents_users'

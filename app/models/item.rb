@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+
   validates :name, presence:true, length:{maximum:40}
   validates :introduction, presence:true, length:{maximum:1000}
   validates :price, presence:true, numericality: {greater_than_or_equal_to: 300}
@@ -7,6 +8,7 @@ class Item < ApplicationRecord
   validates :postage_payer, presence:true
   validates :prefecture_code, presence:true
   validates :preparation_day, presence:true
+
   enum item_condition: {
     新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,
     やや傷や汚れあり:4,傷や汚れあり:5,全体的に状態が悪い:6
@@ -30,19 +32,28 @@ class Item < ApplicationRecord
   enum preparation_day: {
     "1~2日で発送":1,"2~3日で発送":2,"4~7日で発送":3
   }
-
-  has_many :comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
-
+  # コメント機能、お気に入り機能が実装したらコメントアウト外す
+  # has_many :comments, dependent: :destroy
+  # has_many :favorites, dependent: :destroy
   belongs_to :seller, class_name: "User"
-
   belongs_to :buyer, class_name: "User",optional:true
   belongs_to :category
-  belongs_to :user, foreign_key: 'user_id',optional:true
-  
-  
+  belongs_to :user, foreign_key: 'user_id',optional:true 
   has_many :item_imgs, inverse_of: :item,dependent: :destroy
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
+
   validates_associated :item_imgs
   validates :item_imgs, presence:true
+
+
+  def self.search(search)
+    if search
+        Item.where('name LIKE(?) OR introduction LIKE(?)', "%#{search}%", "%#{search}%")
+    else
+      Item.all
+    end
+  end
+
 end
+
+

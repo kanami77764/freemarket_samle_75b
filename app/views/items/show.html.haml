@@ -15,17 +15,17 @@
     .show-main__item-box
       .show-main__item-box__item-name
         = @items.name
-          -if @items.buyer_id.present? 
-          .main-contents__show-main__item-box__item-name__sold
-            .main-contents__show-main__item-box__item-name__sold__inner 
-              SOLD
       .show-main__item-box__item-image
         .show-main__item-box__item-image__main-img
           - @items.item_imgs.first(1).each do |img|
-            = image_tag (img.url), size:"400x350"
+            = image_tag "#{img.url}", size:"400x350", class: "top-img"
+            -if @items.buyer_id.present? 
+              .top-img__sold
+                .top-img__sold__inner 
+                  SOLD
         .show-main__item-box__item-image__sub-img
           - @items.item_imgs.first(3).each do |img|
-            = image_tag (img.url), size:"140x100"
+            = image_tag "#{img.url}", size:"140x100"
           
       .show-main__item-box__item-price
         %p
@@ -33,7 +33,17 @@
         .show-main__item-box__item-price__item-price-detail
           (税込)送料込み
         .show-main__item-box__item-price__item-price-btn
-          %button#purchase-btn  商品を購入する
+          - if @items.buyer_id.present?
+            = link_to root_path do
+              売り切れました
+          - elsif user_signed_in?
+            - unless current_user.id == @items.seller_id
+              = link_to item_buyers_path(@items) do
+                商品購入
+          - else
+            = link_to require_login_items_path do
+              ログインがまだな方はこちらからお願いします
+
         .show-main__item-box__item-detail
           = @items.introduction
 
@@ -42,7 +52,7 @@
           %tr.one
             %th 出品者
             %td
-              = @items.name
+              = @seller
           %tr.two
             %th カテゴリー
             %td
@@ -56,17 +66,14 @@
             %th ブランド
             %td 
               = @items.brand
-          %tr.tree
-            %th 商品のサイズ
-            %td 
-              = @items.size
           %tr.one
             %th 商品の状態
             %td 
               = @items.item_condition
           %tr.one
             %th 配送料の負担
-            %td 送料込み（出品者の負担）
+            %td
+              = @items.postage_payer
           %tr.one
             %th 発送元の地域
             %td 
@@ -82,10 +89,12 @@
           = button_tag type: 'button', class: "like-btn" do
             = icon('fa', 'thumbs-up')
             お気に入り
-        .show-main__item-box__option-area__delete-area
+        .show-main__item-box__option-area__seller-area
           - if user_signed_in? && current_user.id == @items.seller_id
+            = link_to "#", class: "edit__btn" do
+              編集
             = link_to item_path(@items), method: :delete, class: "delete__btn" do
-              商品を削除する
+              削除
 
         .show-main__item-box__option-area__optional
           =link_to '#', class:"optional" do
@@ -111,9 +120,11 @@
     .link-change-page__next-item
       =link_to '#', class:"next-btn" do
         後の商品 >
-  .related-items-link
-    =link_to '#', class:"related-items" do
-      ベビー・キッズをもっと見る
+
+      
 
 = render partial: 'layouts/appBanner'
 = render partial: 'layouts/footer'
+
+
+

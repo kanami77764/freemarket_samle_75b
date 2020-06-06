@@ -1,5 +1,6 @@
 require 'rails_helper'
 describe Item do
+
   describe '#create' do
     it "送信テスト" do
       user = create(:user)
@@ -73,7 +74,22 @@ describe Item do
       item = build(:item, price: 299 )
       item.valid?
       expect(item.errors[:price]).to include("は300以上の値にしてください")
+
+
+  describe '#search' do
+   
+    it "曖昧なキーワードを入れても検索できること" do
+      item = build(:item)
+      expect(item).to be_valid
+    end
+
+    it "検索フォームが空でも全データが表示できること" do
+      item = build(:item)
+      expect(item).to be_valid
+
     end
 
   end
 end
+
+

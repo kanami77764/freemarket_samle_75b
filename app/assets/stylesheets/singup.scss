@@ -4,37 +4,33 @@ $color-item3: turquoise;
 
 .sing-content {
   box-sizing: border-box;
-
-  .single-header{
-    width:100vw;
-    height:100px;
+  background-color: $color-item2;
+  .single-header {
+    background-color: $color-item1;
   }
   .sing-main  {
     background-color:$color-item2;
-    height: 900px;
+    height: 100vh;
     width: 100vw;
     
     &__container {
       background-color:$color-item1;
       width: 600px;
-      height: 900px;
-      margin: auto;
+      margin: 50px auto;
+      padding-bottom: 50px;
       &__title {
         height: 30px;
         font-size: 20px;
         text-align: center;
         border-bottom: 1px $color-item2 solid;
         padding: 15px;
-
         font-weight: bolder;
       }
       &__form {
-        background-color: $color-item1;
         height: 100%;
         padding-left: 160px;
   
         .form__contents {
-         background-color: $color-item1;
          width: 300px;
          height: 100%;
 

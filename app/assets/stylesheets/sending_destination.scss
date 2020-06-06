@@ -4,18 +4,22 @@ $color-item3: turquoise;
 
 .sending-content {
   box-sizing: border-box;
-
+  background-color: $color-item2;
+  .single-header {
+    background-color: $color-item1;
+  }
   
   .sending-main  {
     background-color:$color-item2;
-    height: 900px;
+    height: 1000px;
     width: 100vw;
+    margin-top: 50px;
     
     &__content {
       background-color:$color-item1;
       width: 600px;
-      height: 1100px;
       margin: auto;
+      padding-bottom: 50px;
       &__title {
         height: 30px;
         font-size: 20px;
@@ -41,6 +45,10 @@ $color-item3: turquoise;
          
             .sending-group {
               font-size: 16px;
+              .field_with_errors {
+                display: contents;
+                
+              }
               &__input {
                 margin-bottom: 25px;
                 border-radius: 5px;

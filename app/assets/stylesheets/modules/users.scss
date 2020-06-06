@@ -1,6 +1,3 @@
-$font_color: rgb(78, 88, 99);
-$font_title: #333;
-
 
 html {
   height: 100%;
@@ -64,7 +61,6 @@ body {
     width: 700px;
     float: right;
 
-
     .user-info {
       height: 150px;
       width: 700px;
@@ -114,6 +110,48 @@ body {
         color: $font_title;
       }
 
+      .tab-credit {
+        width: 700px;
+        height: 400px;
+        border: solid 1px $font_color;
+        border-radius: 20px;
+
+        margin-top: 40px;
+
+        &__title {
+
+          height: 100px;
+          width: 500px;
+          font-size: 20px;
+          font-weight: bold;
+          color: $font_color;
+          text-align: center;
+          line-height: 100px;
+          margin: 0 auto;
+        }
+
+        &__frame {
+          height: 400px;
+          width: 700px;
+
+          .card-link {
+            text-decoration: none;
+            color: $font_color;
+
+            p {
+              height: 30px;
+              width: 300px;
+              text-align: center;
+              margin: 20px auto 0;
+              font-size: 20px;
+              padding: 20px;
+              background-color: #3ccace;
+              border-radius: 30px;
+            }
+          }
+        }
+      }
+      
       .tab-content{
         .todo-lists {
           width: 700px;
@@ -199,98 +237,4 @@ body {
   }
   
 
-
-  .left-contents {
-    width: 280px;
-    height: 800px;
-    float: left;
-    margin-right: 50px;
-    padding-top: 30px;
-
-    nav {
-      p {
-        size: 15px;
-        font-weight: bold;
-        width: 280px;
-        height: 40px;
-        text-align: center;
-        color: $font_title;
-      }
-      .my-page-lists {
-        width: 280px;
-        height: 400px;
-        
-
-        li {
-          display: flex;
-          border-bottom: 1px solid $font_title;
-
-          .lists-info {
-            width: 270px;
-           
-            font-size: 14px;
-            line-height: 50px;
-            height: 50px;
-            color: $font_color;
-            padding-left: 10px;
-          }
-          
-          a {
-            text-decoration: none;
-            color: $font_color;
-            
-          }
-          i {
-            width: 20px;
-            height: 50px;
-            line-height: 50px;
-            color: $font_title;
-
-          }
-        }
-      }
-
-      p {
-        size: 15px;
-        font-weight: bold;
-        width: 280px;
-        height: 40px;
-        text-align: center;
-        color: $font_title;
-      }
-
-      .setting-lists {
-        width: 280px;
-        height: 200px;
-
-        .list-setting {
-          display: flex;
-          border-bottom: 1px solid $font_title;
-
-          &__info {
-            font-size: 14px;
-            line-height: 50px;
-            height: 50px;
-            color: $font_color;
-            padding-left: 10px;
-            width: 270px;
-
-
-            a {
-              text-decoration: none;
-              color: $font_color;
-            }
-          }
-
-          i {
-            width: 20px;
-            height: 50px;
-            line-height: 50px;
-            color: $font_title;
-
-          }
-        }
-      }
-    }
-  }
 }

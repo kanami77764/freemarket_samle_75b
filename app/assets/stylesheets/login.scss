@@ -2,19 +2,22 @@ $color-item1: white;
 $color-item2: whitesmoke;
 .login-content{
   box-sizing: border-box;
+  background-color: $color-item2;
   .login-header {
     width:100vw;
     height:100px;
+    padding-bottom: 50px;
+    background-color: $color-item1;
   }
+  
   .login-main {
-    background-color: $color-item2;
     height: 900px;
     width: 100vw;
 
     .main-container {
       background-color:$color-item1;
-      width: 600px;
-      height: 500px;
+      width: 380px;
+      height: 400px;
       margin: auto;
       
       .login-form {
@@ -23,8 +26,8 @@ $color-item2: whitesmoke;
         text-align: center;
               
           .items-adress {
-            margin-top: 50px;
-            padding-top: 60px;
+            margin-top: 90px;
+            padding-top: 70px;
 
           }
           .items-password{

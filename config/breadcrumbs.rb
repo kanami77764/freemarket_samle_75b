@@ -39,6 +39,17 @@ crumb :items_show do
   parent :root
 end
 
+#カード登録画面の時専用のマイページ
+crumb :card_index do
+  link "マイページ", new_card_path
+  parent :root
+end
+
+#カード登録結果ページ
+crumb :card_show do
+  link "カード登録一覧"
+  parent :card_index
+end
 
 
 

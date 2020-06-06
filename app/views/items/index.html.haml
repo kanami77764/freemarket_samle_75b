@@ -118,17 +118,17 @@
                   .productList--img__items-sold
                     .productList--img__items-sold__inner 
                       SOLD
-              .productList--body
-                %h3.product--name
-                  = item.name
-                .details
-                  %ul
-                    %li
-                      = "#{item.price}円" 
-                    %li
-                      %i.fa.fa-star.likeIcon
-                  %p
-                    (税込)
+            .productList--body
+              %h3.product--name
+                = item.name
+              .details
+                %ul
+                  %li
+                    = "#{item.price}円" 
+                  %li
+                    %i.fa.fa-star.likeIcon
+                %p
+                  (税込)
 
   %section.pickupContainer
     %h2.head
