@@ -1,15 +1,13 @@
 class Item < ApplicationRecord
-  validates :name, presence: true
-  validates :introduction, presence: true
-  validates :price, presence: true
-  validates :item_condition, presence: true
-  validates :postage_payer, presence: true
-  validates :prefecture_code, presence: true
-  validates :preparation_day, presence: true
-  # validates :postage_type, presence: true
-  
-  validates :name, length:{maximum:40}
-  validates :introduction, length:{maximum:1000}
+
+  validates :name, presence:true, length:{maximum:40}
+  validates :introduction, presence:true, length:{maximum:1000}
+  validates :price, presence:true, numericality: {greater_than_or_equal_to: 300}
+  validates :category, presence:true
+  validates :item_condition, presence:true
+  validates :postage_payer, presence:true
+  validates :prefecture_code, presence:true
+  validates :preparation_day, presence:true
 
   enum item_condition: {
     新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,
@@ -44,6 +42,10 @@ class Item < ApplicationRecord
   has_many :item_imgs, inverse_of: :item,dependent: :destroy
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
 
+  validates_associated :item_imgs
+  validates :item_imgs, presence:true
+
+
   def self.search(search)
     if search
         Item.where('name LIKE(?) OR introduction LIKE(?)', "%#{search}%", "%#{search}%")
@@ -51,6 +53,7 @@ class Item < ApplicationRecord
       Item.all
     end
   end
+
 end
 
 
