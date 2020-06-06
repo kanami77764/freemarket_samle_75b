@@ -33,7 +33,7 @@
               .status_register__status_category_group__category__register_title
                 = form.label 'カテゴリー'
               .status_register__status_category_group__category__choose
-                = form.collection_select :category_id,Category.where(ancestry: "").limit(13),:id, :name,{prompt: '---'}, {id: 'parent_category'}
+                = form.collection_select :category_id,Category.where(ancestry: nil).limit(13),:id, :name,{prompt: '---'}, {id: 'parent_category'}
         = form.label "ブランド"
         = form.text_field :brand , placeholder: "例）シャネル"
         = form.label "商品の状態"
