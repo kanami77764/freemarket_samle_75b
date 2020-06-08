@@ -25,7 +25,7 @@ ja:
         city: 市町村
         house_number: 番地
       item:
-        item_img: 画像
+        item_imgs: 画像
         name: 商品名
         introduction: 説明文
         category: カテゴリー
