@@ -125,6 +125,7 @@
 |prefecture_code|integer|null:false|
 |preparation_day|integer|null:false,foreign_key: true|
 |category|references|null:false,foreign_key:true|
+|trading_status|integer||
 |seller|references|null:false,foreign_key:true|
 |buyer|references|foreign_key:true|
 ### Association
