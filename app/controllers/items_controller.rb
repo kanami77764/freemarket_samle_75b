@@ -27,6 +27,10 @@ class ItemsController < ApplicationController
     @grandchild = Category.find(@items.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
+    @items = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = @items.comments.includes(:user)
+    @comments = @items.comments.order(created_at: :desc)
   end
 
 
