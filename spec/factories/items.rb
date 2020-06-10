@@ -1,6 +1,5 @@
 FactoryBot.define do
 
-
   factory :item do
     # id              {1}
     name            {"名前"}
@@ -12,6 +11,7 @@ FactoryBot.define do
     prefecture_code {1}
     preparation_day {1}
     postage_type    {1}
+
     category
     seller_id       {FactoryBot.create(:user).id}
 
@@ -19,5 +19,4 @@ FactoryBot.define do
       item.item_imgs << FactoryBot.build(:item_img)
     end
   end
-  
 end

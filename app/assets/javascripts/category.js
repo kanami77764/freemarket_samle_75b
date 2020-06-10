@@ -1,6 +1,4 @@
 $(document).on('turbolinks:load', function(){
-
-
   $(function(){
     //オプション設定
     function appendOption(category){
@@ -50,6 +48,11 @@ $(document).on('turbolinks:load', function(){
         //親カテゴリが変更された時に子・孫カテゴリを削除する
         $('#children_wrapper').remove();
         $('#grandchildren_wrapper').remove();
+        //商品編集時、親カテゴリが変更された時に子・孫カテゴリを削除する
+        $('#child_icon').remove();
+        $('#child_category').remove();
+        $('#grandchild_icon').remove();
+        $('#grandchild_category').remove();
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
