@@ -79,18 +79,34 @@ describe Item do
   
 
   describe '#search' do
+    
+    # item_img = create(:item_img)
+    # binding.pry
+    # item = FactoryBot.create(:item, category_id: category[:id], seller_id: user[:id], item_imgs_attributes: [url: image ] )
+
+    # item1 = FactoryBot.create(:item, name: "ハリネズミ")
+
+    # item2 = FactoryBot.create(:item, introduction: "可愛い")
+
+    # item3 = FactoryBot.create(:item, price: 1000)
+      # user = create(:user, name: "test", email: "test@gmail.com")
+      # category = create(:category)
+      # image = Rack::Test::UploadedFile.new(Rails.root.join('spec/factories/test.jpeg'), 'spec/factories/test.jpeg')
+      # binding.pry
    
     it "曖昧なキーワードを入れても検索できること" do
-      item = build(:item)
-      expect(item).to be_valid
+      item1 = FactoryBot.create(:item, name: "ハリネズミ")
+      item2 = FactoryBot.create(:item, introduction: "可愛い")
+      # search = build(:search)
+      expect(Item.search("ハリネズミ").first).to eq (item1)
     end
 
     it "検索フォームが空でも全データが表示できること" do
-      item = build(:item)
-      expect(item).to be_valid
-
+      item1 = FactoryBot.create(:item, name: "ハリネズミ")
+      item2 = FactoryBot.create(:item, introduction: "可愛い")
+      # search = build(:search)
+  
+      expect(Item.search("").length).to eq (Item.all.length)
     end
   end
 end
-
-
