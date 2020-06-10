@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
 
   def index
-    @items = Item.all.order('id DESC').limit(4)
+    @items = Item.all.order('id DESC').limit(10)
   end
 
   def new 
