@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :comment do
-    comment         {"22"}
+    comment         {"222"}
     user
     item
   end
