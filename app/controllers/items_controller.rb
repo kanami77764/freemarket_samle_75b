@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save!
       redirect_to root_path
     else
       @item.item_imgs.build
@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
     :name, :introduction, :price,
     :brand, :item_condition, 
     :postage_payer, :prefecture_code,
-    :preparation_day, :postage_type, :category_id, :trading_status,
+    :preparation_day, :postage_type, :category_id, 
     item_imgs_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 

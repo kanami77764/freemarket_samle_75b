@@ -9,6 +9,9 @@ class Item < ApplicationRecord
   validates :prefecture_code, presence:true
   validates :preparation_day, presence:true
 
+  validates_associated :item_imgs
+  validates :item_imgs, presence:true
+
   enum item_condition: {
     新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,
     やや傷や汚れあり:4,傷や汚れあり:5,全体的に状態が悪い:6
@@ -33,9 +36,9 @@ class Item < ApplicationRecord
     "1~2日で発送":1,"2~3日で発送":2,"4~7日で発送":3
   }
 
-  enum trading_status:{
-    出品中:1,売り切れ:2
-  }
+  enum trading_status:[
+    ['出品中',1],['売り切れ',2]
+  ]
   # コメント機能、お気に入り機能が実装したらコメントアウト外す
   # has_many :comments, dependent: :destroy
   # has_many :favorites, dependent: :destroy
@@ -46,8 +49,7 @@ class Item < ApplicationRecord
   has_many :item_imgs, inverse_of: :item,dependent: :destroy
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
 
-  validates_associated :item_imgs
-  validates :item_imgs, presence:true
+
 
 
   def self.search(search)

@@ -1,0 +1,240 @@
+
+html {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  
+}
+body {
+  height:900px;
+  margin:0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.users-header {
+  width: 100%;
+  background-color: white;
+}
+
+.bread-crumbs {
+  height: 40px;
+  width: 100%;
+  padding: 0 50px;
+  border-top:1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  position: relative;
+  background-color: white;
+
+  ul {
+    height: 40px;
+    width: 1155px;
+    max-width: 1000;
+    margin: 0 auto;
+    display: flex;
+    line-height: 40px;
+
+    li {
+      margin-left: 5px;
+      font-size: 14px;
+
+      a {
+        text-decoration: none;
+        margin: 5px;
+        color: $font_color;
+      }
+      a:hover {
+        color: #3ccace;
+      }
+    }
+  }
+}
+
+.users-main {
+  height: 100%;
+  width: 1100px;
+  margin: 0 auto;
+  padding: 24px 0 40px 0;
+  
+
+  .right-contents {
+    width: 700px;
+    float: right;
+
+    .user-info {
+      height: 150px;
+      width: 700px;
+
+      .user-info__contents {
+        background-color: white;
+
+        a {
+          text-decoration: none;
+          color: $font_color;
+        }
+
+        figure {
+          text-align: center;
+          margin: 0 auto;
+          height: 100px;
+          line-height: 150px;
+
+          img {
+            border-radius: 20px;
+          }
+        }
+
+        p {
+          text-align: center;
+          height: 40px;
+          line-height: 20px;
+          padding-bottom: 10px;
+        }
+      }
+    }
+
+
+
+    .user-todo {
+      width: 700px;
+      height: 400px;
+
+      .tab-todo {
+        width: 700px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        background-color:#3ccace;
+        color: $font_title;
+      }
+
+      .tab-credit {
+        width: 700px;
+        height: 400px;
+        border: solid 1px $font_color;
+        border-radius: 20px;
+
+        margin-top: 40px;
+
+        &__title {
+
+          height: 100px;
+          width: 500px;
+          font-size: 20px;
+          font-weight: bold;
+          color: $font_color;
+          text-align: center;
+          line-height: 100px;
+          margin: 0 auto;
+        }
+
+        &__frame {
+          height: 400px;
+          width: 700px;
+
+          .card-link {
+            text-decoration: none;
+            color: $font_color;
+
+            p {
+              height: 30px;
+              width: 300px;
+              text-align: center;
+              margin: 20px auto 0;
+              font-size: 20px;
+              padding: 20px;
+              background-color: #3ccace;
+              border-radius: 30px;
+            }
+          }
+        }
+      }
+      
+      .tab-content{
+        .todo-lists {
+          width: 700px;
+          height: 80px;
+
+          li {
+            border-bottom: 1px solid $font_color;
+            font-size: 14px;
+            line-height: 80px;
+            display: flex;
+            
+            .list-item {
+              width: 650px;
+              color: $font_color;
+              padding-left: 10px;
+
+            }
+            i {
+              line-height: 80px;
+              width: 50px;
+              font-size: 20px;
+              color: $font_color;
+            }
+          }
+        }
+      }
+    }
+
+
+
+    .buy-product {
+      width: 700px;
+      height: 400px;
+
+      &__head {
+        width: 700px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: #3ccace;
+        color:$font_title;
+      }
+
+      .tab-buy {
+        width: 700px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: rgb(119, 171, 192);
+        color: $font_color;
+        margin-top: 3px;
+      }
+
+      .tab-content {
+
+        .buy-lists {
+
+          li {
+            border-bottom: 1px solid #333;
+            font-size: 14px;
+            line-height: 80px;
+            display: flex;
+            
+            .list-item {
+              width: 650px;
+              color: $font_color;
+              padding-left: 10px;
+              
+            }
+
+            i {
+              line-height: 80px;
+              width: 50px;
+              font-size: 20px;
+              color:$font_color;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+}
