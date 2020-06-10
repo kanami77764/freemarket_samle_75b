@@ -3,5 +3,5 @@ class Comment < ApplicationRecord
   belongs_to :item
 
   validates :comment, presence: true,
-                      length: { minimum: 2, maximum: 100 ,message: "は3文字以上で入力してください"}
+                      length: { minimum: 3, maximum: 100 }
 end

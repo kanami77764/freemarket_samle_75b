@@ -3,8 +3,9 @@ describe Comment do
   
   describe '#create' do
     it "user_id、item_id、コメントが存在すれば登録できること" do
-      comment = create(:comment)
-      expect(comment).to be_valid
+      expect(build(:comment)).to be_valid
+      # comment = build(:comment)
+      # expect(comment).to be_valid
     end
 
     it "user_idがない場合は登録できないこと" do
