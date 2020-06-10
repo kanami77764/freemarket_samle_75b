@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :edit]
 
   resources :items, only: [:new, :show, :create, :edit, :update, :destroy] do 
+    resources :comments, only: [:create, :destroy]
     post :edit
     collection do
       get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }

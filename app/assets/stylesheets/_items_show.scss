@@ -188,6 +188,7 @@ $btn-color: red;
         background-color: white;
         height: 280px;
         width: 100%;
+    
         &__new-comment {
           height: 100px;
           width: 660px;
@@ -223,29 +224,57 @@ $btn-color: red;
             border-radius: 100px;
           }
         }
+       
+         
       }
+    }
+    .show-main__item-box__coment-box__comments {
+      width: 600px;
+      height:  350px;
+      padding: 40px;
+      display: inline-block;
       
-    }
-  }
-
-  .link-change-page {
-    width: 700px;
-    height: 30px;
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
-    margin: auto;
-
-    .back-btn, .next-btn {
-      color: $sub-color;
-      text-decoration: none;
-      .back-btn, .next-btn {
-        color: $sub-color;
-        text-decoration: none;
+      h1{
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 40px;
       }
-    }
+
+      p.name{
+        font-size: 18px;
+        color:darkgray;
+        float:left;
+        margin-right: 10px;
     
+      }
+
+      p.comment{
+        font-size: 18px;
+        color:black;
+        margin-left: 40px;
+        margin-bottom: 20px;
+      
+      
+      
+
+
+       }
+      .comment-delete-btn {
+        font-size: 12px;
+        color: white;
+        padding: 3px;
+        background-color:rgb(0, 181, 205);
+        border: solid 1px rgb(0, 181, 205);
+        text-decoration: none;
+        border-radius: 10px;
+        float: right;
+       
+     
+ 
+      }
+     
+    }  
   }
 }
 

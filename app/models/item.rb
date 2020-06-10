@@ -32,6 +32,10 @@ class Item < ApplicationRecord
   enum preparation_day: {
     "1~2日で発送":1,"2~3日で発送":2,"4~7日で発送":3
   }
+
+  enum trading_status:{
+    出品中:1,売り切れ:2
+  }
   # コメント機能、お気に入り機能が実装したらコメントアウト外す
   # has_many :comments, dependent: :destroy
   # has_many :favorites, dependent: :destroy
@@ -40,6 +44,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :user, foreign_key: 'user_id',optional:true 
   has_many :item_imgs, inverse_of: :item,dependent: :destroy
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
 
   validates_associated :item_imgs

@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update]
 
   def index
-    @items = Item.all.order('id ASC').limit(4)
+    @items = Item.all.order('id DESC').limit(4)
   end
 
   def new 
@@ -27,6 +27,10 @@ class ItemsController < ApplicationController
     @grandchild = Category.find(@items.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
+    @items = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = @items.comments.includes(:user)
+    @comments = @items.comments.order(created_at: :desc)
   end
 
 
@@ -77,7 +81,7 @@ class ItemsController < ApplicationController
     :name, :introduction, :price,
     :brand, :item_condition, 
     :postage_payer, :prefecture_code,
-    :preparation_day, :postage_type, :category_id,
+    :preparation_day, :postage_type, :category_id, :trading_status,
     item_imgs_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_005728) do
+ActiveRecord::Schema.define(version: 2020_06_08_085236) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 2020_06_02_005728) do
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "user_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_comments_on_item_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "item_imgs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_005728) do
     t.integer "preparation_day"
     t.text "postage_type"
     t.bigint "category_id"
-    t.text "trading_status"
+    t.integer "trading_status"
     t.bigint "seller_id"
     t.bigint "buyer_id"
     t.datetime "created_at", null: false
