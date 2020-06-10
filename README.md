@@ -40,7 +40,10 @@
 `$ rails db:create`<br>
 `$ rails db:migrate`<br>
 
-5.アプリケーションの起動<br>
+5.カテゴリ一覧の反映<br>
+`$ rails db:seed`<br>
+
+6.アプリケーションの起動<br>
 `$ rails s`<br>
 :point_right:`http://localhost:3000`
 
