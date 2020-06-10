@@ -114,7 +114,7 @@ $(function(){
   });
 });
 
-$(function(){
+$(function load(){
   var data = $('#item_price').val(); // val()でフォームのvalueを取得(数値)
   var profit = Math.round(data * 0.9)  // 手数料計算を行う｡dataにかけているのが0.9なのは単に引きたい手数料が10%のため｡
   var fee = (data - profit) // 入力した数値から計算結果(profit)を引く｡それが手数料となる｡
