@@ -36,7 +36,7 @@ describe User do
       user = create(:user)
       another_user = build(:user, name: user.name)
       another_user.valid?
-      expect(another_user.errors[:nameがない場合は登録できないこと]).to include("has already been taken")
+      expect(another_user.errors[:name]).to include("はすでに存在します")
     end
 
     it "emailに@とドメインが存在する場合は登録できること " do
@@ -50,14 +50,14 @@ describe User do
       user = create(:user)
       another_user = build(:user, email: "kkkgmail")
       another_user.valid?
-      expect(another_user.errors[:email]).to include("No @domain")
+      expect(another_user.errors[:email]).to include("は不正な値です")
     end
 
     it "重複したemailが存在する場合は登録できない" do
       user = create(:user)
       another_user = build(:user, email: user.email)
       another_user.valid?
-      expect(another_user.errors[:email]).to include("has already been taken")
+      expect(another_user.errors[:email]).to include("はすでに存在します")
     end
    
     it " passwordが7文字以上であれば登録できること " do
@@ -69,7 +69,7 @@ describe User do
     it " passwordが6文字以下であれば登録できないこと " do
       user = build(:user, password: "passwo", password_confirmation: "password")
       user.valid?
-      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
+      expect(user.errors[:password]).to include("は7文字以上で入力してください")
     end
   end
 end
