@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :move_to_index, except: [:index, :show, :require_login]
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @items = Item.all.order('id DESC').limit(4)
@@ -44,6 +44,24 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @grandchild = Category.find(@items.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
+  end
+
+  def update
+    if  
+      @items.update(item_params)
+      redirect_to item_path
+    else
+      @grandchild = Category.find(@items.category_id)
+      @child = @grandchild.parent
+      @parent = @child.parent
+      render :edit
+    end
+  end
+  
   def destroy
     @items = Item.find(params[:id])
     @items.destroy

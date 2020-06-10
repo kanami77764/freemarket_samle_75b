@@ -24,7 +24,7 @@
                 .top-img__sold__inner 
                   SOLD
         .show-main__item-box__item-image__sub-img
-          - @items.item_imgs.first(3).each do |img|
+          - @items.item_imgs.first(10).each do |img|
             = image_tag "#{img.url}", size:"140x100"
           
       .show-main__item-box__item-price
@@ -58,8 +58,10 @@
             %td
               = @parent.name
               %br
+              >
               = @child.name
               %br
+              >>
               = @grandchild.name
               
           %tr.tree
@@ -91,7 +93,7 @@
             お気に入り
         .show-main__item-box__option-area__seller-area
           - if user_signed_in? && current_user.id == @items.seller_id
-            = link_to "#", class: "edit__btn" do
+            = link_to edit_item_path(@items), class: "edit__btn" do
               編集
             = link_to item_path(@items), method: :delete, class: "delete__btn" do
               削除
