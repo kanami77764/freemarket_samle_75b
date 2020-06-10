@@ -1,6 +1,4 @@
 $(document).on('turbolinks:load', function(){
-
-
   $(function(){
     //オプション設定
     function appendOption(category){
