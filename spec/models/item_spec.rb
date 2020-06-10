@@ -74,7 +74,9 @@ describe Item do
       item = build(:item, price: 299 )
       item.valid?
       expect(item.errors[:price]).to include("は300以上の値にしてください")
-
+    end
+  end
+  
 
   describe '#search' do
    
@@ -88,7 +90,6 @@ describe Item do
       expect(item).to be_valid
 
     end
-
   end
 end
 
