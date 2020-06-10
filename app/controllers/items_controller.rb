@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
 
   def index
-    @items = Item.all.order('id ASC').limit(4)
+    @items = Item.all.order('id DESC').limit(4)
   end
 
   def new 
@@ -39,7 +39,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      redirect_to new_item_path
+      @item.item_imgs.build
+      render :new
     end
   end
 
@@ -62,7 +63,7 @@ class ItemsController < ApplicationController
     :name, :introduction, :price,
     :brand, :item_condition, 
     :postage_payer, :prefecture_code,
-    :preparation_day, :postage_type, :category_id,
+    :preparation_day, :postage_type, :category_id, :trading_status,
     item_imgs_attributes: [:url, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 

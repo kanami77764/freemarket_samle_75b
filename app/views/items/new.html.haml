@@ -12,17 +12,17 @@
 .items_new_page
   .items_register_form
     = form_with model: @item, local: true do |form|
+      = render "items/error_item", model: form.object
       .form_section.image_register
         = form.label '出品画像'
         %span.form-group__require 必須
         .image-attend ドラッグ＆ドロップで最大10枚まで貼れます。
         .image_lists
           #image-box-1
-            .item-num-0#image-box__container
+            %label.item-num-0#image-box__container{for: "img-file"}
               = form.fields_for :item_imgs do |i|
-                %label.image-form{for: "img-file"}
-                  =i.file_field :image, type: 'file', name: "item[item_imgs_attributes][][url]", value:"", id:"img-file"
-                  = image_tag ('icon_camera.png')
+                =i.file_field :image, type: 'file', name: "item[item_imgs_attributes][][url]", value:"", id:"img-file"
+              = image_tag ('icon_camera.png')
       .form_section.item_register
         = form.label '商品名'
         %span.form-group__require 必須
@@ -69,6 +69,9 @@
           = form.number_field :rieki, style: "display: none", id: "price"
           .right_bar_2
 
+      .form_section.trading_status_form
+        = form.select :trading_status,Item.trading_statuses.keys
+      
       .form_section.register_btns
         = form.submit "出品する",class:"exhibition-btn"
       .attentions

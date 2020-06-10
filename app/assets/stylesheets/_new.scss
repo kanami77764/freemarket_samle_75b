@@ -7,6 +7,13 @@
     width: 100%;
     border-radius: 4px;
     padding: 32px 24px;
+    .alert {
+      color:#262626; 
+      background:#FFEBE8;
+      text-align: center;
+      border:2px solid #990000;
+      padding:12px; font-weight:850;
+    }
     .form_section{
       border-bottom: solid 1px #999999;
       padding-top: 10px;
@@ -68,7 +75,7 @@
           }
         }
         #image-box__container{
-          height: 119px;
+          height: 110px;
           background-color: #3CCACE;
           border: dotted 4px silver;
           border-radius: 20px;
@@ -91,7 +98,7 @@
           }
         }
         .item-num-0{
-          width: 100%;
+          width: 600px;
         }
         .item-num-1{
           width: 470px;
@@ -123,7 +130,9 @@
       }
       
     }
-
+    .trading_status_form{
+      display: none;
+    }
     .register_btns{
       padding: 30px;
       .exhibition-btn{
