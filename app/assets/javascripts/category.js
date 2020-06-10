@@ -47,6 +47,11 @@ $(function(){
       //親カテゴリが変更された時に子・孫カテゴリを削除する
       $('#children_wrapper').remove();
       $('#grandchildren_wrapper').remove();
+      // 子カテゴリと孫カテゴリ削除
+      $('#child_icon').remove();
+      $('#child_category').remove();
+      $('#grandchild_icon').remove();
+      $('#grandchild_category').remove();
       var insertHTML = '';
       children.forEach(function(child){
         insertHTML += appendOption(child);
