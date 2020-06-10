@@ -152,7 +152,7 @@
 - belongs_to :user
 - belongs_to :item -->
 
-<!--## commentsテーブル
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null:false|
@@ -160,7 +160,7 @@
 |item|references|null:false,foreign_key:true|
 ### Association
 - belongs_to :user
-- belongs_to :item -->
+- belongs_to :item
 
 ## categoriesテーブル
 |Column|Type|Options|
