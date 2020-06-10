@@ -17,7 +17,7 @@
         = form.label '出品画像'
         %span.form-group__require 必須
         .image-attend クリックで最大10枚まで貼れます。
-        = form.fields_for :item_imgs do |i|
+        = form.fields_for :item_imgs,@item.item_imgs.build do |i|
           .clearfix
             %ul#previews
               %li.input

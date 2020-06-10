@@ -18,8 +18,7 @@ $(function(){
     $('.image_upload').on('change', function (e) {
       //inputで選択した画像を読み込む
       var reader = new FileReader();
-
-
+      
       // プレビューに追加させるために、inputから画像ファイルを読み込む。
       reader.readAsDataURL(e.target.files[0]);
 
