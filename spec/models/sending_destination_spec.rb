@@ -11,48 +11,48 @@ describe SendingDestination do
     it "destination_first_nameがない場合は登録できないこと" do
       sending_destination = build(:sending_destination, destination_first_name: nil)
       sending_destination.valid?
-      expect(sending_destination.errors[:destination_first_name]).to include("can't be blank")
+      expect(sending_destination.errors[:destination_first_name]).to include("全角で入力して下さい", "を入力してください")
     end
 
 
     it "destination_family_nameがない場合は登録できないこと" do
       sending_destination = build(:sending_destination, destination_family_name: nil)
       sending_destination.valid?
-      expect(sending_destination.errors[:destination_family_name]).to include("can't be blank")
+      expect(sending_destination.errors[:destination_family_name]).to include("全角で入力して下さい", "を入力してください")
     end
 
 
     it "destination_first_name_kanaがない場合は登録できないこと" do
       sending_destination = build(:sending_destination, destination_first_name_kana: nil)
       sending_destination.valid?
-      expect(sending_destination.errors[:destination_first_name_kana]).to include("can't be blank")
+      expect(sending_destination.errors[:destination_first_name_kana]).to include("全角カタカナのみで入力して下さい", "を入力してください")
     end
 
 
     it "destination_family_name_kanaがない場合は登録できないこと" do
       sending_destination = build(:sending_destination, destination_family_name_kana: nil)
       sending_destination.valid?
-      expect(sending_destination.errors[:destination_family_name_kana]).to include("can't be blank")
+      expect(sending_destination.errors[:destination_family_name_kana]).to include("全角カタカナのみで入力して下さい", "を入力してください")
     end
 
 
     it "post_codeがない場合は登録できないこと" do
       sending_destination = build(:sending_destination, post_code: nil)
       sending_destination.valid?
-      expect(sending_destination.errors[:post_code]).to include("can't be blank")
+      expect(sending_destination.errors[:post_code]).to include("は不正な値です", "を入力してください")
     end
 
     it "prefecture_codeがない場合は登録できないこと" do
       sending_destination = build(:sending_destination, prefecture_code: nil)
       sending_destination.valid?
-      expect(sending_destination.errors[:prefecture_code]).to include("can't be blank")
+      expect(sending_destination.errors[:prefecture_code]).to include("を入力してください")
     end
   
 
     it "house_numberがない場合は登録できないこと" do
       sending_destination = build(:sending_destination, house_number: nil)
       sending_destination.valid?
-      expect(sending_destination.errors[:house_number]).to include("can't be blank")
+      expect(sending_destination.errors[:house_number]).to include("を入力してください")
     end
   end
 end
