@@ -3,9 +3,7 @@ describe Comment do
   
   describe '#create' do
     it "user_id、item_id、コメントが存在すれば登録できること" do
-      user = create(:user)
-      item = create(:item)
-      comment = FactoryBot.build(:comment, user_id: user[:id], item_id: item[:id])
+      comment = create(:comment)
       expect(comment).to be_valid
     end
 
