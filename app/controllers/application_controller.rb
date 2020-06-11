@@ -4,11 +4,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   # rescue_from Exception, with: :rescue_from_exception
 
- #エラー発生時にトップページに戻る。
-  def rescue_from_exception(e)
-  @exception = e 
-  redirect_to root_path
-  end 
   protected
 
   def configure_permitted_parameters
