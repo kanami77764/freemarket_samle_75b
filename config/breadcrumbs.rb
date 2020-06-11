@@ -5,7 +5,7 @@ end
 
 # 会員情報入力ページ(3ページ)
 crumb :users_new do
-  link "会員情報入力", new_user_path
+  link "会員情報入力", users_path
   parent :root
 end
 
@@ -29,14 +29,20 @@ end
 
 # 商品出品ページ
 crumb :items_new do
-  link "商品出品", new_item_path
+  link "商品出品", items_path
   parent :mypage
 end
 
 # 商品詳細ページ
 crumb :items_show do
-  link "商品詳細", new_item_path
+  link "商品詳細"
   parent :root
+end
+
+# 商品編集ページ
+crumb :items_edit do
+  link "商品編集", items_path
+  parent :items_show
 end
 
 #カード登録画面の時専用のマイページ
