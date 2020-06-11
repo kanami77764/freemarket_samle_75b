@@ -4,7 +4,10 @@ class CommentsController < ApplicationController
       @comment = Comment.create(comment_params)
       @comment.user_id = current_user.id
       if @comment.save
-          redirect_to item_path(@comment.item.id)
+        respond_to do |format|
+          format.html { redirect_to item_path(@comment.item.id) }
+          format.json
+        end
       end
   end
   

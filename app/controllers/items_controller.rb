@@ -29,8 +29,7 @@ class ItemsController < ApplicationController
     @parent = @child.parent
     @items = Item.find(params[:id])
     @comment = Comment.new
-    @comments = @items.comments.includes(:user)
-    @comments = @items.comments.order(created_at: :desc)
+    @comments = @items.comments.includes(:user).order(created_at: :desc)
   end
 
 
