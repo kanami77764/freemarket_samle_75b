@@ -5,7 +5,7 @@ end
 
 # 会員情報入力ページ(3ページ)
 crumb :users_new do
-  link "会員情報入力", new_user_path
+  link "会員情報入力", users_path
   parent :root
 end
 
