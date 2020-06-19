@@ -5,7 +5,7 @@
 - メルカリクローンのフリーマーケットサイトです。
 - TECH::EXPERT 75期短期集中コースBチームで作成。
 - 作成期間 2020/5/19 ~ 2020/6/12
-- ![top_page](https://gyazo.com/8cc8c91e61ca8af55a7432061a27f146/raw)
+　![top_page](https://gyazo.com/8cc8c91e61ca8af55a7432061a27f146/raw)
 
 ## :paperclip: 主な使用言語
 <a><img src="https://user-images.githubusercontent.com/39142850/71774533-1ddf1780-2fb4-11ea-8560-753bed352838.png" width="70px;" /></a> <!-- rubyのロゴ -->
@@ -67,7 +67,7 @@
 ## サイトURL紹介
 - ユーザー名:admin
 - パスワード:password
-- IPアドレス:54.178.226.20
+- IPアドレス:http://54.178.226.20/
 
 ## :globe_with_meridians: インストール方法
 1.このリポジトリを複製<br>
